@@ -1,24 +1,43 @@
-import { Ambulance, PhoneCall } from "lucide-react";
+"use client";
+
+import { Ambulance, PhoneCall, ShoppingCart, Search, User } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
+import {
+  cancerTypes,
+  centreOfExcellence,
+  ourServices,
+} from "../constants/NavContent";
 
 const NavBar = () => {
   return (
-    <section className="fixed left-0 right-0 top-0 bg-white">
-      <nav className="flex justify-between border-b ">
-        <div className="basis-[20%] flex-center">
+    <section className="sticky left-0 right-0 top-0 bg-white z-50 shadow-md">
+      {/* Top Bar */}
+      <nav className="relative flex items-center justify-between border-b px-6 py-4">
+        {/* Logo */}
+        <div className="flex flex-col items-start">
           <Image
             src="/images/logo.webp"
-            alt="logo image"
-            width={150}
-            height={150}
+            alt="Omega Hospitals logo"
+            width={144}
+            height={64}
           />
         </div>
-        <div className="basis-[40%] pl-64 flex-center">
-          <select
-            name=""
-            id=""
-            className="border border-gray-300 p-2 rounded-sm"
-          >
+
+        {/* Center Select - Absolutely centered */}
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <select className="border border-gray-300 px-4 py-2 rounded-sm text-sm min-w-[240px]">
             <option>Please Select a Center</option>
             <option value="omega-hospitals-gachibowli">
               Omega Hospitals Gachibowli
@@ -51,29 +70,202 @@ const NavBar = () => {
             </option>
           </select>
         </div>
-        <div className="basis-[40%] flex items-center justify-end gap-5 px-5">
-          <div className="border-[#e56e1b] border py-1 px-4 rounded-3xl">
-            <a href="" className="text-[#e56e1b] text-sm">
+
+        {/* Right Side */}
+        <div className="flex items-center gap-6">
+          <div className="border-[#e56e1b] border py-2 px-5 rounded-3xl">
+            <a href="#" className="text-[#e56e1b] text-sm font-medium">
               Request a Callback
             </a>
           </div>
-          <div className="flex-center py-2">
-            <div className="bg-[#289eb0] py-1 px-3 rounded-tl-lg rounded-bl-lg text-white text-[12px]">
+          <div className="flex items-center">
+            <div className="bg-[#289eb0] py-2 px-4 rounded-tl-lg rounded-bl-lg text-white text-[12px]">
               <p>For Appointments</p>
-              <div className="flex gap-1">
-                <PhoneCall width={15} height={15} /> 040 25552555
+              <div className="flex gap-1 items-center">
+                <PhoneCall size={15} /> 040 25552555
               </div>
             </div>
-            <div className="bg-[#e6701c] py-1 px-3 rounded-tr-lg rounded-br-lg text-white text-[12px]">
+            <div className="bg-[#e6701c] py-2 px-4 rounded-tr-lg rounded-br-lg text-white text-[12px]">
               <p>Emergency</p>
-              <div className="flex gap-1">
-                <Ambulance width={15} height={15} />
-                98490 22121
+              <div className="flex gap-1 items-center">
+                <Ambulance size={15} /> 98490 22121
               </div>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Main Navigation Menu */}
+      <div className="border-b">
+        <div className="flex items-center justify-between px-6 py-3">
+          <NavigationMenu>
+            <NavigationMenuList className="gap-4">
+              {/* Dropdown items - use NavigationMenuTrigger */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-white text-sm font-medium"
+                  )}
+                >
+                  Centre of Excellence
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[1100px] grid-cols-4 gap-x-10 gap-y-4 p-6">
+                    {centreOfExcellence.map((item) => (
+                      <li key={item}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href="#"
+                            className="block border-b border-[#e56e1b] pb-2 text-sm font-medium text-gray-800 transition-all duration-200"
+                          >
+                            {item}
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-sm font-medium "
+                  )}
+                >
+                  Our Services
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="w-[300px] p-6 space-y-3">
+                    {ourServices.map((item) => (
+                      <li key={item}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href="#"
+                            className="block text-sm font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
+                          >
+                            {item}
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* Plain text items - exactly like "Docs" in the shadcn demo */}
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
+                  )}
+                  asChild
+                >
+                  <Link href="#">Knowledge Centre</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
+                  )}
+                  asChild
+                >
+                  <Link href="#">Cancer Journey</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
+                  )}
+                  asChild
+                >
+                  <Link href="#">Blogs</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-sm font-medium "
+                  )}
+                >
+                  Cancer
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[900px] grid-cols-4 gap-x-12 gap-y-3 p-6">
+                    {cancerTypes.map((item) => (
+                      <li key={item}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href="#"
+                            className="block text-sm font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
+                          >
+                            {item}
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
+                  )}
+                  asChild
+                >
+                  <Link href="#">About Us</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
+                  )}
+                  asChild
+                >
+                  <Link href="#">FAQs</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
+                  )}
+                  asChild
+                >
+                  <Link href="#">News and Media</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+            <NavigationMenuViewport />
+          </NavigationMenu>
+
+          {/* Right-side icons */}
+          <div className="flex items-center gap-8 text-gray-700">
+            <ShoppingCart className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
+            <Search className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
+            <User className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

@@ -1,0 +1,13 @@
+// tailwind.config.js
+module.exports = {
+  // ... your existing config
+  plugins: [
+    // ... your other plugins
+    require("tailwindcss-animate"),
+  ],
+  extend: {
+    fontFamily: {
+      sans: ["var(--font-satoshi)", "system-ui", "sans-serif"],
+    },
+  },
+};
