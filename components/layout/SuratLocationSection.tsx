@@ -15,51 +15,62 @@ import Image from "next/image";
 
 const features = [
   {
-    title: "Halcyon D - Advanced Radiotherapy System & Digital PET-CT",
+    title: "Halcyon D - Advanced Radiotherapy System\n & Digital PET-CT",
   },
   {
-    title: "Expert Full-Time Medical Team",
-  },
-  {
-    title: "Comprehensive Cancer Care – Medical, Surgical & Radiation Oncology",
-  },
-  {
-    title: "24/7 Emergency & Critical Care",
+    title: "Expert Full-Time Medical\n Team",
   },
   {
     title:
-      "Multispecialty Excellence – Cardiology, Neurology, Ortho, Gastro & more",
+      "Comprehensive Cancer Care – Medical,\n Surgical & Radiation Oncology",
+  },
+  {
+    title: "24/7 Emergency & Critical\n Care",
   },
   {
     title:
-      "Patient-First Approach – Personalized treatment, emotional support, financial counseling",
+      "Multispecialty Excellence – Cardiology,\n Neurology, Ortho, Gastro & more",
+  },
+  {
+    title:
+      "Patient-First Approach – Personalized\n treatment, emotional support, financial\n counseling",
   },
 ];
 
 export default function SuratLocationSection() {
   return (
-    <section className="bg-linear-to-br from-[#E56E1B05] to-white py-16 lg:py-24 overflow-hidden">
-      <div className="mx-auto px-6 lg:px-8 relative">
+    <section className="relative bg-linear-to-br from-[#E56E1B05] to-white py-16 lg:py-24 overflow-hidden">
+      <div className="absolute -top-1 right-0 -left-0.5 z-30 opacity-90">
+        <Image
+          alt="layer_1"
+          src="/images/health-care/Layer_2.png"
+          height={158}
+          width={158}
+          style={{ transform: "rotate(180deg)" }}
+        />
+      </div>
+      <div className="mx-auto md:mx-20 px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start">
           {/* Left Column - Text + Form */}
           <div className="space-y-10">
             <div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl lg:text-4xl font-normal text-gray-900 leading-tight">
                 Surat's Trusted Partner in
-                <span className="text-[#e56e1b]"> Advanced Healthcare</span>
+                <p className="text-[#e56e1b] font-bold"> Advanced Healthcare</p>
               </h1>
             </div>
 
             {/* Request Call Back Form Card */}
             <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-10">
-              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                Request a Call Back Today
-              </h2>
-              <p className="mt-2 text-gray-600 text-sm lg:text-base">
-                Fill in your details and our team will get in touch with you
-                shortly.
-              </p>
-
+              <div className="flex-center-col">
+                <h4 className="font-bold text-[#e56e1b]">
+                  Request a Call Back Today
+                </h4>
+                <p className="mt-2 text-gray-600 text-sm font-normal">
+                  Fill in your details and our team will get in touch with you
+                  shortly.
+                </p>
+              </div>
               <form className="mt-8 space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <Input placeholder="Name" className="h-12 text-base" />
@@ -102,19 +113,19 @@ export default function SuratLocationSection() {
           </div>
 
           {/* Right Column - Why Trust Section */}
-          <div className="space-y-8">
-            <p className="mt-6 text-gray-700 text-base lg:text-lg leading-relaxed">
+          <div className="space-y-8 text-justify">
+            <p className="mt-6 text-black font-normal text-base font-sans leading-relaxed ">
               Located in the vibrant heart of Surat, Athwa Gate – Gujarat's
               Diamond and Textile Capital, Omega Hospitals has emerged as South
               Gujarat's premier destination for world-class cancer treatment and
               comprehensive multispecialty care.
             </p>
-            <p className="mt-4 text-gray-700 text-base lg:text-lg leading-relaxed">
+            <p className="mt-4 text-black font-normal text-base font-sans leading-relaxed">
               Our commitment? To bring the same level of expertise and
               technology found in global cancer centers, right here to your
               doorstep.
             </p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-omega">
               Why Patients Trust Omega Surat:
             </h2>
 
@@ -123,12 +134,13 @@ export default function SuratLocationSection() {
                 <div
                   key={index}
                   className="
-        relative
-        rounded-2xl
-        bg-[#E56E1B08]
-        p-6
-        pl-14
-      "
+                    relative
+                    rounded-2xl
+                    bg-[#E56E1B08]
+                    p-6
+                    pl-14
+                    flex-center-col
+                  "
                 >
                   {/* Icon pinned top-left */}
                   <div className="absolute left-0 top-4">
@@ -141,7 +153,7 @@ export default function SuratLocationSection() {
                   </div>
 
                   {/* Text */}
-                  <p className="text-gray-800 font-medium text-base leading-snug">
+                  <p className="text-omega font-normal text-[14px] text-center leading-snug">
                     {feature.title}
                   </p>
                 </div>

@@ -54,6 +54,13 @@
   .flex-between {
     @apply flex justify-between items-center;
   }
+  .text-omega {
+    @apply text-[#e56e1b] font-sans;
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-satoshi);
 }
 
 :root {
@@ -130,6 +137,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }

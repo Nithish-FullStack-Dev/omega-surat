@@ -49,8 +49,13 @@ export default function HealthcareStatsSection() {
   return (
     <section className="bg-white py-16 lg:py-20 overflow-hidden relative">
       {/* Subtle orange dot pattern on the right (matches the screenshot) */}
-      <div className="absolute right-0 top-0 h-full w-full pointer-events-none opacity-20">
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(229,110,27,0.3)_1px,transparent_1px)] bg-[length:30px_30px]" />
+      <div className="absolute bottom-0 right-0 z-30">
+        <Image
+          alt="layer_1"
+          src="/images/health-care/Layer_2.png"
+          height={128}
+          width={99}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
@@ -64,14 +69,15 @@ export default function HealthcareStatsSection() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center space-y-4"
+              className="flex flex-col items-center justify-center text-center"
             >
               {/* Icon */}
-              <div className="relative w-16 h-16 lg:w-20 lg:h-20">
+              <div className="relative w-16 h-16 lg:w-20 lg:h-20 flex-center-col">
                 <Image
                   src={stat.icon}
                   alt={stat.label}
-                  fill
+                  height={44}
+                  width={44}
                   className="object-contain drop-shadow-sm"
                 />
               </div>
@@ -82,7 +88,7 @@ export default function HealthcareStatsSection() {
               </p>
 
               {/* Label */}
-              <p className="text-sm lg:text-base text-gray-600 font-medium max-w-[140px] leading-snug font-sans">
+              <p className="text-sm lg:text-base text-gray-600 font-medium max-w-35 leading-snug font-sans">
                 {stat.label}
               </p>
             </div>

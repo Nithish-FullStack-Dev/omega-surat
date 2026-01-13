@@ -74,11 +74,11 @@ export default function ComprehensiveCancerCare() {
         </div>
 
         {/* Main Component Container */}
-        <div className="border-[1.5px] border-[#e56e1b]/40 rounded-[40px] overflow-hidden flex flex-col lg:flex-row min-h-[650px] shadow-sm bg-white">
+        <div className="border-[1.5px] border-[#e56e1b]/40 rounded-[40px] overflow-hidden flex flex-col lg:flex-row min-h-162.5 shadow-sm bg-white">
           {/* LEFT SIDE: Active Content */}
           <div className="flex-1 relative p-8 md:p-12 lg:p-16 flex flex-col justify-center">
             {/* Background Faded Image */}
-            <div className="absolute inset-0 z-0 opacity-[0.05]">
+            <div className="absolute inset-0 z-0 opacity-[0.09]">
               <Image
                 src={activeDept.image}
                 alt="bg"
@@ -100,13 +100,13 @@ export default function ComprehensiveCancerCare() {
                 <h4 className="font-bold text-gray-800 text-sm mb-3">
                   Services Include:
                 </h4>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-4">
+                <ul className="flex flex-col gap-y-2 gap-x-4">
                   {activeDept.services.map((service, idx) => (
                     <li
                       key={idx}
                       className="flex items-start gap-2 text-sm text-gray-600"
                     >
-                      <span className="text-[#e56e1b] mt-1.5 h-1.5 w-1.5 rounded-full bg-[#e56e1b] shrink-0" />
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-black shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -137,7 +137,7 @@ export default function ComprehensiveCancerCare() {
                 <button
                   key={dept.id}
                   onClick={() => setActiveDept(dept)}
-                  className="relative flex-1 min-h-[160px] flex overflow-hidden group border-b border-white/20 last:border-0"
+                  className="relative flex-1 min-h-40 flex overflow-hidden group border-b border-white/20 last:border-0"
                 >
                   {/* 1. Base Department Image */}
                   <Image
