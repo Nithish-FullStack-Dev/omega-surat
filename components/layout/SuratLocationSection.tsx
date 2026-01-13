@@ -77,7 +77,7 @@ export default function SuratLocationSection() {
                   <Input placeholder="Contact" className="h-12 text-base" />
                   <Input placeholder="Email ID" className="h-12 text-base" />
                   <Select>
-                    <SelectTrigger className="h-12 text-base">
+                    <SelectTrigger className="h-12 text-base w-full">
                       <SelectValue placeholder="Select Departments" />
                     </SelectTrigger>
                     <SelectContent>

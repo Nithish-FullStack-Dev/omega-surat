@@ -210,7 +210,6 @@ const Footer = () => {
                 "Liver Cancer",
                 "Colon Cancer",
                 "Endometrial Cancer",
-                "Pancreatic Cancer",
                 "Stomach Cancer",
                 "Skin Cancer",
                 "Prostate Cancer",
@@ -237,10 +236,25 @@ const Footer = () => {
       </div>
       {/* Top Social / Emergency Bar */}
       <div className="bg-[#2fa1b3]">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div
+          className="
+      max-w-7xl mx-auto
+      px-4 sm:px-6
+      py-4
+      flex flex-col gap-4
+      sm:flex-row sm:items-center sm:justify-between
+    "
+        >
           {/* Social Media */}
-          <div className="flex items-center gap-4 text-white">
-            <span className="font-semibold text-lg">Social Media :</span>
+          <div
+            className="
+        flex flex-col gap-3 text-white
+        sm:flex-row sm:items-center sm:gap-4
+      "
+          >
+            <span className="font-semibold text-base sm:text-lg">
+              Social Media :
+            </span>
 
             <div className="flex items-center gap-3">
               <a className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#2fa1b3] hover:opacity-80 transition">
@@ -259,16 +273,23 @@ const Footer = () => {
           </div>
 
           {/* Emergency */}
-          <div className="flex items-center gap-4 text-white">
-            <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center">
-              <PhoneCall className="w-5 h-5" />
+          <div
+            className="
+        flex items-center gap-3 sm:gap-4
+        text-white
+      "
+          >
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-orange-500 flex items-center justify-center">
+              <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
 
             <div className="leading-tight">
-              <p className="text-sm font-semibold uppercase">
+              <p className="text-xs sm:text-sm font-semibold uppercase">
                 Daily 24h Emergency
               </p>
-              <p className="text-lg font-bold tracking-wide">9849022121</p>
+              <p className="text-base sm:text-lg font-bold tracking-wide">
+                9849022121
+              </p>
             </div>
           </div>
         </div>

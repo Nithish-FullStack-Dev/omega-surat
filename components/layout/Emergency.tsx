@@ -12,31 +12,58 @@ const Emergency = () => {
           priority
         />
       </div>
-      <div className="bg-[#e56e1b] w-full p-10">
-        <div className="flex-between gap-6 max-w-[80%] mx-auto">
-          <h2 className="text-[32px] font-semibold text-white basis-[20%]">
+      <div className="bg-[#e56e1b] w-full py-10 px-4">
+        <div
+          className="
+    max-w-7xl mx-auto
+    flex flex-col gap-6
+    md:flex-row md:items-center md:justify-between
+  "
+        >
+          {/* Heading */}
+          <h2
+            className="
+      text-white font-semibold
+      text-2xl sm:text-3xl
+      md:max-w-md
+    "
+          >
             Schedule your Appointment
           </h2>
-          <div className="flex-center gap-4">
-            <button className="py-2 px-3 rounded-xl bg-[#299FB0] text-white text-[16px]">
+
+          {/* Actions */}
+          <div
+            className="
+      flex flex-col gap-4
+      sm:flex-row sm:items-center
+    "
+          >
+            <button
+              className="
+        px-5 py-2.5 rounded-xl
+        bg-[#299FB0] text-white
+        text-base font-medium
+        hover:opacity-90 transition
+      "
+            >
               Get In Touch
             </button>
-            <div>
-              <Image
-                src="/images/playstore.jpg"
-                alt="playstore"
-                width={140}
-                height={46}
-              />
-            </div>
-            <div>
-              <Image
-                src="/images/appstore.jpg"
-                alt="appstore"
-                width={140}
-                height={46}
-              />
-            </div>
+
+            <Image
+              src="/images/playstore.jpg"
+              alt="Play Store"
+              width={140}
+              height={46}
+              className="cursor-pointer"
+            />
+
+            <Image
+              src="/images/appstore.jpg"
+              alt="App Store"
+              width={140}
+              height={46}
+              className="cursor-pointer"
+            />
           </div>
         </div>
       </div>
