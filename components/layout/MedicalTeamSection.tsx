@@ -115,7 +115,7 @@ export default function MedicalTeamSection() {
         {/* --- MOBILE VIEW --- */}
         <div className="md:hidden flex flex-col items-center">
           {/* Large Profile Image with Background Gradient */}
-          <div className="relative w-full aspect-square max-w-[340px] rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-[#fce3d2] to-[#E86B1E] mb-6 shadow-xl">
+          <div className="relative w-full aspect-square max-w-85 rounded-[2.5rem] overflow-hidden bg-linear-to-b from-[#fce3d2] to-[#E86B1E] mb-6 shadow-xl">
             <Image
               src={activeDoc.image}
               alt={activeDoc.name}
@@ -146,7 +146,7 @@ export default function MedicalTeamSection() {
               {activeDoc.name}
             </h3>
             <p className="text-gray-700 text-sm font-medium leading-relaxed mb-6">
-              {activeDoc.quals} — {activeDoc.title}
+              {activeDoc.quals}
             </p>
             <p className="text-gray-600 text-sm leading-relaxed mb-8">
               {activeDoc.bio}
