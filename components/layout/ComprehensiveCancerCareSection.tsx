@@ -11,6 +11,7 @@ const departments = [
     title: "MEDICAL ONCOLOGY",
     description:
       "Personalized chemotherapy, targeted therapy, immunotherapy, and hormonal treatments tailored to your cancer type, stage, and genetic profile. Our experienced medical oncologists create a treatment plan that balances effectiveness with quality of life.",
+    servicetTitle: "Services Include:",
     services: [
       "Personalized Chemotherapy Protocols",
       "Targeted Molecular Therapy",
@@ -27,32 +28,52 @@ const departments = [
     id: "02",
     title: "SURGICAL ONCOLOGY",
     description:
-      "Expert surgical intervention for tumor removal and staging using minimally invasive and robotic-assisted techniques.",
+      "Minimally invasive, laparoscopic, and robotic-assisted techniques, we ensure faster recovery and better outcomes.",
+    servicetTitle: "pecialties Covered:",
     services: [
-      "Tumor Resection",
-      "Biopsy",
-      "Robotic Surgery",
-      "Reconstructive Surgery",
+      "Head & Neck Cancer Surgery",
+      "Breast Cancer Surgery (Oncoplastic & Reconstruction)",
+      "GI & Hepatobiliary Oncology",
+      "Gynecologic & Urologic Cancer Surgery",
+      "Thoracic & Lung Cancer Surgery",
+      "Musculoskeletal Oncology",
     ],
-    support: "Post-operative care, rehabilitation, pain management",
+    support: "ICU care, pain management, physiotherapy, rehabilitation",
     image: "/images/Comprehensive-Cancer/2.png",
   },
   {
     id: "03",
     title: "RADIATION ONCOLOGY",
     description:
-      "Precision radiation therapy using advanced linear accelerators to target cancer cells while sparing healthy tissue.",
-    services: ["IMRT", "SBRT", "Brachytherapy", "Proton Therapy"],
-    support: "Skin care management, dietary support",
+      "Powered by India's first Al-integrated ETHOS LINAC and advanced imaging, our radiation oncology department delivers precision treatment that targets cancer while protecting healthy tissue. From conventional therapy to robotic radiosurgery, we offer the most advanced radiation options available globally.",
+    servicetTitle: "Technologies Available:",
+    services: [
+      "ETHOS Al-Powered Adaptive Radiotherapy (India's 1st)",
+      "3D Conformal Radiation Therapy (3D-CRT)",
+      "Intensity-Modulated Radiation Therapy (IMRT)",
+      "Image-Guided Radiation Therapy (IGRT)",
+      "Stereotactic Radiosurgery (SRS) & SBRT",
+      "CyberKnife Robotic Radiosurgery",
+      "Brachytherapy (Internal Radiation)",
+    ],
     image: "/images/Comprehensive-Cancer/3.png",
   },
   {
     id: "04",
     title: "HEMATO-ONCOLOGY & BMT",
     description:
-      "Specialized care for blood cancers and bone marrow transplants provided by leading hematologists.",
-    services: ["BMT", "CAR-T Cell Therapy", "Blood Transfusions"],
-    support: "Isolation ward care, long-term follow-up",
+      "Specialized care for blood cancers including leukemia, lymphoma, myeloma, and other hematological disorders. Our dedicated BMT unit provides autologous and allogeneic bone marrow transplants with comprehensive pre- and post-transplant support.",
+    servicetTitle: "Services Include:",
+    services: [
+      "Acute & Chronic Leukemia Treatment",
+      "Lymphoma (Hodgkin's & Non-Hodgkin's)",
+      "Multiple Myeloma Management",
+      "Bone Marrow Transplant (BMT)",
+      "Stem Cell Therapy",
+      "CAR-T Cell Therapy (Upcoming)",
+    ],
+    support:
+      "Dedicated BMT unit, infection control, transfusion services, genetic counseling",
     image: "/images/Comprehensive-Cancer/4.png",
   },
 ];
@@ -88,23 +109,23 @@ export default function ComprehensiveCancerCare() {
             </div>
 
             <div key={activeDept.id} className="relative z-10">
-              <h3 className="text-[#e56e1b] text-2xl md:text-3xl font-bold tracking-tight">
+              <h3 className="text-omega text-2xl font-bold tracking-tight">
                 {activeDept.title}
               </h3>
 
-              <p className="mt-6 text-gray-600 leading-relaxed text-sm md:text-base max-w-xl">
+              <p className="mt-6 font-normal leading-relaxed text-sm md:text-base max-w-xl">
                 {activeDept.description}
               </p>
 
               <div className="mt-8">
-                <h4 className="font-bold text-gray-800 text-sm mb-3">
-                  Services Include:
+                <h4 className="font-normal text-sm mb-3">
+                  {activeDept.servicetTitle}
                 </h4>
                 <ul className="flex flex-col gap-y-2 gap-x-4">
                   {activeDept.services.map((service, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-2 text-sm text-gray-600"
+                      className="flex items-start gap-2 text-1xl text-gray-600"
                     >
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-black shrink-0" />
                       {service}
@@ -114,9 +135,7 @@ export default function ComprehensiveCancerCare() {
               </div>
 
               <p className="mt-8 text-sm text-gray-600">
-                <span className="font-bold text-gray-800">
-                  Support Services:
-                </span>{" "}
+                <span className="font-normal text-1xl">Support Services:</span>{" "}
                 {activeDept.support}
               </p>
 
