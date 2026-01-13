@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { AnimatedCounter } from "../helpers/AnimatedCounter";
 
 const stats = [
   {
@@ -84,7 +85,7 @@ export default function HealthcareStatsSection() {
 
               {/* Number */}
               <p className="text-[16px] font-bold text-gray-900 leading-tight">
-                {stat.number}
+                <AnimatedCounter value={stat.number} />
               </p>
 
               {/* Label */}
