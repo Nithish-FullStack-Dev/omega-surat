@@ -242,7 +242,7 @@ const Footer = () => {
       px-4 sm:px-6
       py-4
       flex flex-col gap-4
-      sm:flex-row sm:items-center sm:justify-between
+      sm:flex-row items-center sm:justify-between
     "
         >
           {/* Social Media */}
@@ -252,11 +252,10 @@ const Footer = () => {
         sm:flex-row sm:items-center sm:gap-4
       "
           >
-            <span className="font-semibold text-base sm:text-lg">
-              Social Media :
-            </span>
-
             <div className="flex items-center gap-3">
+              <span className="font-semibold text-base sm:text-lg">
+                Social Media :
+              </span>
               <a className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#2fa1b3] hover:opacity-80 transition">
                 <Facebook size={16} />
               </a>

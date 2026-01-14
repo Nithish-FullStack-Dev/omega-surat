@@ -8,6 +8,7 @@ import MedicalTeamSection from "@/components/layout/MedicalTeamSection";
 import SuratLocationSection from "@/components/layout/SuratLocationSection";
 import VisitUs from "@/components/layout/VisitUs";
 import HeroCarousel from "@/components/layout/HeroCarousel";
+import ModernMachine from "@/components/layout/ModernMachine";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ComprehensiveCancerCareSection />
       <ExpertTreatment />
       <MedicalTeamSection />
+      <ModernMachine />
       <AppointmentSection />
       <VisitUs />
       <Emergency />

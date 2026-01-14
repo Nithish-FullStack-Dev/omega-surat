@@ -213,8 +213,8 @@ const NavBar = () => {
                     </a>
 
                     {/* Mega Dropdown */}
-                    <div className="absolute left-0 top-full z-50 hidden w-screen bg-white shadow-lg group-hover:block">
-                      <div className="mx-auto max-w-screen-xl px-6 py-6">
+                    <div className="absolute left-0 top-full z-50 hidden w-[90vw] bg-white shadow-lg group-hover:block">
+                      <div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3 text-sm">
                           {[
                             "Surgical Oncology",
@@ -339,8 +339,8 @@ const NavBar = () => {
                     </a>
 
                     {/* Mega Dropdown */}
-                    <div className="absolute left-0 top-full z-50 hidden w-screen bg-white shadow-lg group-hover:block">
-                      <div className="mx-auto max-w-screen-xl ">
+                    <div className="absolute left-0 top-full z-50 hidden w-[50vw] bg-white shadow-lg group-hover:block">
+                      <div>
                         <div
                           className="
         grid

@@ -3,12 +3,19 @@ import Image from "next/image";
 const Emergency = () => {
   return (
     <section>
-      <div className="relative w-full h-100 sm:h-125">
+      <div className="relative w-full h-180 sm:h-125">
         <Image
           src="/images/ambalance.jpg"
           alt="Ambulance"
           fill
-          className="object-cover"
+          className="object-cover sm:block hidden"
+          priority
+        />
+        <Image
+          src="/images/ambalance-mobile.jpg"
+          alt="Ambulance"
+          fill
+          className="object-cover block sm:hidden"
           priority
         />
       </div>
