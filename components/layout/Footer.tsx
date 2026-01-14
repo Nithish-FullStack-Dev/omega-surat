@@ -1,306 +1,844 @@
-import React from "react";
 import {
-  Mail,
-  Phone,
-  MapPin,
   Facebook,
   Instagram,
   Linkedin,
+  Mail,
+  Phone,
   Youtube,
-  PhoneCall,
 } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 items-start">
-          {/* Logo and Contact Section */}
-          <div className="lg:col-span-1 pr-6 border-r border-orange-500">
-            <div className="mb-6">
+    <footer className="bg-white grow">
+      <section className="pt-[50px] max-w-10xl mx-auto px-5 sm:px-6 bg-[#fff]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <div>
               <img
                 src="/images/logo.webp"
-                alt="Omega Hospitals"
-                className="mb-6 w-48 h-auto"
+                alt="Leadership"
+                loading="lazy"
+                width="195"
+                height="81"
+                decoding="async"
+                className=""
               />
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type
-                and scrambled
-              </p>
             </div>
-
-            <div className="space-y-5 mt-8">
-              <h3 className="text-orange-500 text-lg font-semibold">
-                Find Us Here
-              </h3>
-
-              <div className="flex items-start gap-3">
-                <div className="bg-blue-100 p-2 rounded-full flex-shrink-0">
-                  <Mail className="w-5 h-5 text-blue-600" />
-                </div>
-                <p className="text-gray-700 text-sm">
-                  Mail: info@omegahospital.com
-                </p>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="bg-blue-100 p-2 rounded-full flex-shrink-0">
-                  <Phone className="w-5 h-5 text-blue-600" />
-                </div>
-                <p className="text-gray-700 text-sm">Phone: 9849022121</p>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="bg-blue-100 p-2 rounded-full flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-blue-600" />
-                </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  Gachibowli CHR Lane, Rd Number 1,
-                  <br />
-                  Seven Hills Colony, Gachibowli,
-                  <br />
-                  Hyderabad, Telangana 500032
-                </p>
-              </div>
+            <div>
+              <ul className="flex gap-6 mt-6">
+                <li>
+                  <a
+                    href="https://www.youtube.com/@dr.mohanavamsy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-red-600 hover:text-red-800 transition-colors"
+                  >
+                    <Youtube size={36} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/omega.hospitals/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pink-600 hover:text-pink-800 transition-colors"
+                  >
+                    <Instagram size={36} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/OmegaHospitalsOfficial/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    <Facebook size={36} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/omega-hospitals-hyderabad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:text-blue-900 transition-colors"
+                  >
+                    <Linkedin size={36} />
+                  </a>
+                </li>
+              </ul>
             </div>
-          </div>
-
-          {/* Oncology Services */}
-          <div className="lg:col-span-2 flex flex-col justify-between">
-            <div className="flex gap-12">
-              <div>
-                <h3 className="text-orange-500 text-lg font-semibold mb-4">
-                  Oncology Services
-                </h3>
-                <ul className="space-y-2">
-                  {[
-                    "Surgical Oncology",
-                    "Orthopaedic Oncology",
-                    "Radiation Oncology",
-                    "Neuro Oncology",
-                    "Nuclear Medicine & PET-CT",
-                    "PET MRI",
-                    "Robotic Radio Surgery",
-                    "Medical Oncology",
-                  ].map((item) => (
-                    <li key={item}>
-                      <a
-                        href="#"
-                        className="text-gray-700 text-sm hover:text-orange-500 transition-colors"
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-orange-500 text-lg font-semibold mb-4">
-                  Specialties
-                </h3>
-                <ul className="space-y-2">
-                  {[
-                    "Emergency & Trauma",
-                    "Cardiology",
-                    "Cardio Thoracic",
-                    "Neurology",
-                    "Neuro Surgery",
-                    "Orthopaedics & Joint Replacements",
-                    "Nephrology",
-                    "Urology",
-                    "Gastro",
-                    "Pulmonology",
-                    "Critical Care Medicine",
-                    "Dentistry",
-                    "ENT",
-                    "Dermatology",
-                  ].map((item) => (
-                    <li key={item}>
-                      <a
-                        href="#"
-                        className="text-gray-700 text-sm hover:text-orange-500 transition-colors"
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-10">
+            <div className="mt-6">
               <div className="flex items-center gap-4">
-                <img
-                  src="/images/appointment-image.png"
-                  alt="NABH Accredited"
-                  className="w-20 h-20 object-contain"
-                />
-                <div className="space-y-2">
-                  <img
-                    src="/images/playstore.jpg"
-                    alt="Download from Google Play"
-                    className="w-36 object-contain"
-                  />
-                  <img
-                    src="/images/appstore.jpg"
-                    alt="Available on the App Store"
-                    className="w-36 object-contain"
-                  />
+                <a
+                  href="mailto:info@omegahospitals.com"
+                  className="text-[#299fb0] hover:opacity-80 transition-opacity"
+                >
+                  <Mail size={36} />
+                </a>
+                <p className="info-section text-base font-normal leading-loose text-[#000] m-0">
+                  Mail: info@omegahospitals.com
+                </p>
+              </div>
+            </div>
+            <div className="mt-[10px]">
+              <div className="flex items-center gap-4">
+                <a
+                  href="tel:08773501609"
+                  className="text-[#299fb0] hover:opacity-80 transition-opacity"
+                >
+                  <Phone size={36} />
+                </a>
+                <p className="info-section text-base font-normal leading-loose text-[#000] m-0">
+                  Phone: 08773501609
+                </p>
+              </div>
+            </div>
+            <div className="mt-[10px]">
+              <div className="flex gap-4 items-start">
+                <span className="flex-shrink-0 self-center w-[45px] h-[45px] bg-[#e9f4f5] rounded-full flex justify-center items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    className="text-[#299fb0]"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                  </svg>
+                </span>
+                <div>
+                  <span className="text-base font-normal block">
+                    Gachibowli
+                  </span>
+                  <p className="text-base font-normal leading-6 mt-1 m-0">
+                    CHR Lane, Rd Number 1, Seven Hills Colony,
+                    <br />
+                    Gachibowli, Hyderabad, Telangana 500032
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-orange-500 text-lg font-semibold mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {[
-                "Technology",
-                "Facilities",
-                "Blogs",
-                "News and media",
-                "Cafeteria",
-                "Biomedical Waste",
-                "Terms & conditions",
-                "Privacy Policy",
-                "Cancellation Policy",
-                "Insurance",
-                "Corporate Empanelment",
-                "In-Patients",
-                "Out Patients",
-                "Our Patients",
-                "Hospital Rooms",
-                "Patient Rooms",
-                "Courses",
-                "Knowledge Center",
-                "Departments",
-                "FAQs",
-                "Gallery",
-                "Patient Testimonials",
-              ].map((item) => (
-                <li key={item}>
+            <div className="grid grid-cols-2 gap-4 mt-6">
+              <div>
+                <div>
                   <a
-                    href="#"
-                    className="text-gray-700 text-sm hover:text-orange-500 transition-colors"
+                    className="no-decoration block"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://play.google.com/store/apps/details?id=com.omegahospitals.consumerapp"
                   >
-                    {item}
+                    <img
+                      alt="playstore"
+                      loading="lazy"
+                      width="180"
+                      height="59"
+                      decoding="async"
+                      className="w-full sm:w-auto"
+                      src="/images/playstore.jpg"
+                    />
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Cancer Types */}
-          <div>
-            <h3 className="text-orange-500 text-lg font-semibold mb-4">
-              Cancer
-            </h3>
-            <ul className="space-y-2">
-              {[
-                "Breast Cancer",
-                "Brain Cancer",
-                "Cervix Cancer",
-                "Ovarian Cancer",
-                "Anal Cancer",
-                "Liver Cancer",
-                "Colon Cancer",
-                "Endometrial Cancer",
-                "Stomach Cancer",
-                "Skin Cancer",
-                "Prostate Cancer",
-                "Thyroid Cancer",
-                "Testicular Cancer",
-                "Lung Cancer",
-                "Brain Tumour",
-                "Oesophageal Cancer",
-                "Oral Cancer",
-                "Pancreatic Cancer",
-              ].map((item) => (
-                <li key={item}>
+                </div>
+                <div className="pt-2">
                   <a
-                    href="#"
-                    className="text-gray-700 text-sm hover:text-orange-500 transition-colors"
+                    className="no-decoration block"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://apps.apple.com/in/app/omega-hospitals/id6474674502"
                   >
-                    {item}
+                    <img
+                      alt="appstore"
+                      loading="lazy"
+                      width="180"
+                      height="59"
+                      decoding="async"
+                      className="w-full sm:w-auto"
+                      src="/images/appstore.jpg"
+                    />
                   </a>
-                </li>
-              ))}
-            </ul>
+                </div>
+              </div>
+              <div>
+                <img
+                  alt="nabh"
+                  loading="lazy"
+                  width="140"
+                  height="140"
+                  decoding="async"
+                  className="w-full sm:w-auto"
+                  src="/images/appointment-image.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <h2 className="text-[1.25rem] mb-3 font-[600] mt-3 font-omega-typography-text-sm-regular-font-family">
+                  Oncology Services
+                </h2>
+                <ul className="list-none mb-0 pl-0 mt-0 font-omega-typography-text-sm-regular-font-family">
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/surgical-oncology"
+                    >
+                      Surgical Oncology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/orthopaedics"
+                    >
+                      Orthopaedic Oncology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/radiation-oncology"
+                    >
+                      Radiation Oncology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/neurology"
+                    >
+                      Neuro Oncology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/nuclear-medicine"
+                    >
+                      Nuclear Medicine &amp; PET-CT
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/technology/pet-mri"
+                    >
+                      PET MRI
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/technology/cyberknife-vsi"
+                    >
+                      Robotic Radio Surgery
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/medical-oncology"
+                    >
+                      Medical Oncology
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-[1.25rem] mb-3 font-[600] mt-3 font-omega-typography-text-sm-regular-font-family">
+                  Specialties
+                </h2>
+                <ul className="list-none mb-0 pl-0 mt-0 font-omega-typography-text-sm-regular-font-family">
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/emergency-medicine"
+                    >
+                      Emergency &amp; Trauma
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/cardiology"
+                    >
+                      Cardiology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-gachibowli/centers-of-excellence/cardiothoracic-surgery"
+                    >
+                      Cardio Thoracic
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/neurology"
+                    >
+                      Neurology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/neurosurgery"
+                    >
+                      Neuro Surgery
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/orthopaedics"
+                    >
+                      Orthopaedics &amp; Joint Replacements
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/nephrology"
+                    >
+                      Nephrology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/urology"
+                    >
+                      Urology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/gastroenterology"
+                    >
+                      Gastro
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/pulmonology"
+                    >
+                      Pulmonology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/critical-care"
+                    >
+                      Critical Care Medicine
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/dentistry"
+                    >
+                      Dentistry
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/dentistry"
+                    >
+                      ENT
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/dermatology"
+                    >
+                      Dermatology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/breast-clinic"
+                    >
+                      Breast Clinic
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/lipedema-clinic"
+                    >
+                      Lipedema Clinic
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/spine-clinic"
+                    >
+                      Spine Clinic
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/plastic-surgery"
+                    >
+                      Plastic Surgery
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/surgicial-gastroenterology"
+                    >
+                      Surgical Gastroenterology
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/omega-hospitals-tirupati/centers-of-excellence/obesity-clinic"
+                    >
+                      Obesity Clinic
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <div>
+                  <h2 className="text-[1.25rem] mb-3 font-[600] mt-3 font-omega-typography-text-sm-regular-font-family">
+                    Quick Links
+                  </h2>
+                  <ul className="list-none mb-0 pl-0 mt-0 font-omega-typography-text-sm-regular-font-family">
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/technology/pet-ct"
+                      >
+                        Technology
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/facilities"
+                      >
+                        Facilities
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="https://www.omegahospitals.com/blog"
+                      >
+                        Blogs
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/news-and-media"
+                      >
+                        News and media
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/cafeteria"
+                      >
+                        Cafeteria
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/info/biomedical-waste"
+                      >
+                        Biomedical Waste
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/terms"
+                      >
+                        Terms &amp; conditions
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/privacy"
+                      >
+                        Privacy Policy
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/cancellation"
+                      >
+                        Cancellation Policy
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/insurance"
+                      >
+                        Insurance
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/Corporate-Empanelment"
+                      >
+                        Corporate Empanelment
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/in-patients"
+                      >
+                        In-Patients
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/Out-Patients"
+                      >
+                        Out Patients
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/our-patients"
+                      >
+                        Our Patients
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/hospital-rooms"
+                      >
+                        Hospital Rooms
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/patient-rooms"
+                      >
+                        Patient Rooms
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/courses"
+                      >
+                        Courses
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/knowledgecenter"
+                      >
+                        Knowledge Center
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/departments"
+                      >
+                        Departments
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/faqs"
+                      >
+                        FAQs
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/gallery"
+                      >
+                        Gallery
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                        target="_parent"
+                        href="/patients-testimonials"
+                      >
+                        Patient Testimonials
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <h2 className="text-[1.25rem] mb-3 font-[600] mt-3 font-omega-typography-text-sm-regular-font-family">
+                  Cancer
+                </h2>
+                <ul className="list-none mb-0 pl-0 mt-0 font-omega-typography-text-sm-regular-font-family">
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/breast-cancer"
+                    >
+                      Breast Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/brain-cancer"
+                    >
+                      Brain Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/cervix-cancer"
+                    >
+                      Cervix Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/ovarian-cancer"
+                    >
+                      Ovarian Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/anal-cancer"
+                    >
+                      Anal Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/liver-cancer"
+                    >
+                      Liver Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/colon-cancer"
+                    >
+                      Colon Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/endometrial-cancer"
+                    >
+                      Endometrial Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/carcinoma-pancreas-cancer"
+                    >
+                      Pancreatic Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/stomach-cancer"
+                    >
+                      Stomach Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/skin-cancer"
+                    >
+                      Skin Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/prostate-cancer"
+                    >
+                      Prostate Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/thyroid-cancer"
+                    >
+                      Thyroid Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/testicular-cancer"
+                    >
+                      Testicular Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="https://www.omegahospitals.com/lungs-cancer"
+                    >
+                      Lung Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/brain-tumour"
+                    >
+                      Brain Tumour
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/oesophageal-cancer"
+                    >
+                      Oesophageal Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/oral-cancer"
+                    >
+                      Oral Cancer
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
+                      target="_parent"
+                      href="/pancreatic-cancer"
+                    >
+                      Pancreatic Cancer
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      {/* Top Social / Emergency Bar */}
-      <div className="bg-[#2fa1b3]">
-        <div
-          className="
-      max-w-7xl mx-auto
-      px-4 sm:px-6
-      py-4
-      flex flex-col gap-4
-      sm:flex-row items-center sm:justify-between
-    "
-        >
-          {/* Social Media */}
-          <div
-            className="
-        flex flex-col gap-3 text-white
-        sm:flex-row sm:items-center sm:gap-4
-      "
-          >
-            <div className="flex items-center gap-3">
-              <span className="font-semibold text-base sm:text-lg">
-                Social Media :
-              </span>
-              <a className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#2fa1b3] hover:opacity-80 transition">
-                <Facebook size={16} />
-              </a>
-              <a className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#2fa1b3] hover:opacity-80 transition">
-                <Instagram size={16} />
-              </a>
-              <a className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#2fa1b3] hover:opacity-80 transition">
-                <Linkedin size={16} />
-              </a>
-              <a className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#2fa1b3] hover:opacity-80 transition">
-                <Youtube size={16} />
-              </a>
-            </div>
-          </div>
-
-          {/* Emergency */}
-          <div
-            className="
-        flex items-center gap-3 sm:gap-4
-        text-white
-      "
-          >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-orange-500 flex items-center justify-center">
-              <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-
-            <div className="leading-tight">
-              <p className="text-xs sm:text-sm font-semibold uppercase">
-                Daily 24h Emergency
-              </p>
-              <p className="text-base sm:text-lg font-bold tracking-wide">
-                9849022121
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Copyright Bar */}
-      <div className="bg-black">
-        <div className="max-w-7xl mx-auto px-6 py-3 text-center">
-          <p className="text-gray-300 text-sm">
-            © Copyright 2025 - Omega Hospitals - A Morgan Stanley Enterprise.
-            All Rights Reserved.
-          </p>
+      </section>
+      <div>
+        <div className="text-[14px] text-center bg-[#000] text-[#fff] py-2 xs:pb-14 mt-3 font-omega-typography-text-sm-regular-font-family">
+          © Copyright 2025 -{" "}
+          <a className="text-[#fff] no-underline" href="/">
+            Omega Hospitals - A Morgan Stanley Enterprise. All Rights Reserved.
+          </a>
         </div>
       </div>
     </footer>

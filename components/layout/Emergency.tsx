@@ -19,7 +19,7 @@ const Emergency = () => {
           priority
         />
       </div>
-      <div className="bg-[#e56e1b] w-full py-10 px-4">
+      {/* <div className="bg-[#e56e1b] w-full py-10 px-4">
         <div
           className="
       max-w-7xl mx-auto
@@ -27,7 +27,6 @@ const Emergency = () => {
       md:flex-row md:items-center md:justify-between
     "
         >
-          {/* Heading */}
           <h2
             className="
         text-white font-semibold
@@ -39,7 +38,6 @@ const Emergency = () => {
             Schedule your Appointment
           </h2>
 
-          {/* Actions */}
           <div
             className="
         w-full
@@ -48,7 +46,6 @@ const Emergency = () => {
         md:w-auto md:justify-end
       "
           >
-            {/* CTA Button */}
             <button
               className="
           w-full sm:w-auto
@@ -62,7 +59,6 @@ const Emergency = () => {
               Get In Touch
             </button>
 
-            {/* Store Buttons */}
             <div className="flex items-center gap-3">
               <Image
                 src="/images/playstore.jpg"
@@ -82,7 +78,7 @@ const Emergency = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

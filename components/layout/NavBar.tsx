@@ -189,10 +189,10 @@ const NavBar = () => {
         </nav>
 
         {/* Main Navigation Menu */}
-        <div className="hidden lg:flex items-center justify-between h-[4rem] md:h-[3rem]">
+        <div className="hidden lg:flex items-center justify-between h-16 md:h-12">
           <nav className="flex lg:grow">
             <div
-              className="flex flex-wrap items-center justify-between max-w-screen-xl px-4"
+              className="flex flex-wrap items-center justify-between max-w-7xl px-4"
               id="mobile-menu-2"
             >
               <div>
@@ -200,7 +200,7 @@ const NavBar = () => {
                   <li className="relative group">
                     <a
                       href="#"
-                      className="flex items-center gap-1 leading-[30px] text-[12px] font-medium text-black"
+                      className="flex items-center gap-1 leading-7.5 text-[12px] font-medium text-black"
                     >
                       Centre of Excellence
                       <svg
@@ -265,7 +265,7 @@ const NavBar = () => {
                   <li className="relative group">
                     <a
                       href="#"
-                      className="flex items-center gap-1 leading-[30px] text-[12px] font-medium text-black"
+                      className="flex items-center gap-1 leading-7.5 text-[12px] font-medium text-black"
                     >
                       Our Services
                       <svg
@@ -279,7 +279,7 @@ const NavBar = () => {
 
                     {/* Dropdown */}
                     <div className="absolute left-0 top-full z-50 hidden bg-white shadow-lg group-hover:block">
-                      <div className="px-4 py-4 min-w-[260px]">
+                      <div className="px-4 py-4 min-w-65">
                         <ul className="flex flex-col gap-2 text-sm">
                           {ourServices.map((service) => (
                             <li key={service}>
@@ -298,7 +298,7 @@ const NavBar = () => {
 
                   <li className="relative">
                     <a
-                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
                       href="#"
                     >
                       Knowledge Centre
@@ -307,7 +307,7 @@ const NavBar = () => {
 
                   <li className="relative">
                     <a
-                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
                       href="#"
                     >
                       Cancer Journey
@@ -316,7 +316,7 @@ const NavBar = () => {
 
                   <li className="relative md:hidden 2xl:block lg:block">
                     <a
-                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
                       href="#"
                     >
                       Blogs
@@ -326,7 +326,7 @@ const NavBar = () => {
                   <li className="relative group">
                     <a
                       href="#"
-                      className="flex items-center gap-1 leading-[30px] text-[12px] font-medium text-black"
+                      className="flex items-center gap-1 leading-7.5 text-[12px] font-medium text-black"
                     >
                       Cancer
                       <svg
@@ -343,17 +343,17 @@ const NavBar = () => {
                       <div>
                         <div
                           className="
-        grid
-        grid-cols-1
-        sm:grid-cols-2
-        md:grid-cols-3
-        lg:grid-cols-4
-        gap-x-8
-        gap-y-3
-        text-sm
-        max-h-[60vh]
-        overflow-y-auto
-      "
+                            grid
+                            grid-cols-1
+                            sm:grid-cols-2
+                            md:grid-cols-3
+                            lg:grid-cols-4
+                            gap-x-8
+                            gap-y-3
+                            text-sm
+                            max-h-[60vh]
+                            overflow-y-auto
+                          "
                         >
                           {cancerTypes.map((type) => (
                             <a
@@ -377,7 +377,7 @@ const NavBar = () => {
 
                   <li className="relative md:hidden 2xl:block lg:block">
                     <a
-                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
                       href="#"
                     >
                       AboutUs
@@ -386,7 +386,7 @@ const NavBar = () => {
 
                   <li className="relative md:hidden 2xl:block lg:block">
                     <a
-                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
                       href="#"
                     >
                       FAQs
@@ -395,7 +395,7 @@ const NavBar = () => {
 
                   <li className="relative md:hidden 2xl:block lg:block">
                     <a
-                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
                       href="#"
                     >
                       News and Media

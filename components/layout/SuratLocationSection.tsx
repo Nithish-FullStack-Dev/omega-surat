@@ -77,16 +77,17 @@ export default function SuratLocationSection() {
                   <Input placeholder="Contact" className="h-12 text-base" />
                   <Input placeholder="Email ID" className="h-12 text-base" />
                   <Select>
-                    <SelectTrigger className="h-12 text-base w-full">
-                      <SelectValue placeholder="Select Departments" />
+                    <SelectTrigger className="min-h-12 px-3 text-base w-full">
+                      <SelectValue placeholder="Select Department" />
                     </SelectTrigger>
+
                     <SelectContent>
                       <SelectItem value="oncology">Oncology</SelectItem>
                       <SelectItem value="cardiology">Cardiology</SelectItem>
                       <SelectItem value="neurology">Neurology</SelectItem>
-                      {/* Add more departments as needed */}
                     </SelectContent>
                   </Select>
+
                   <Input
                     placeholder="Address"
                     className="h-12 text-base md:col-span-2"
@@ -125,7 +126,7 @@ export default function SuratLocationSection() {
               technology found in global cancer centers, right here to your
               doorstep.
             </p>
-            <h2 className="text-2xl font-bold text-omega">
+            <h2 className="md:text-2xl text-[16px] md:text-start text-center font-bold text-omega">
               Why Patients Trust Omega Surat:
             </h2>
 
