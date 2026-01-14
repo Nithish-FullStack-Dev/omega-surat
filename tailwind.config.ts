@@ -10,4 +10,9 @@ module.exports = {
       sans: ["var(--font-satoshi)", "system-ui", "sans-serif"],
     },
   },
+  theme: {
+    screens: {
+      xl: "1280px",
+    },
+  },
 };

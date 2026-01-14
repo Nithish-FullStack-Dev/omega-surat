@@ -9,26 +9,16 @@ import {
   User,
   Menu,
   X,
+  Wallet,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
 import {
   cancerTypes,
   centreOfExcellence,
@@ -54,20 +44,27 @@ const NavBar = () => {
     <>
       <section className="sticky left-0 right-0 top-0 bg-white z-50 shadow-md">
         {/* Top Bar */}
-        <nav className="relative flex items-center justify-between border-b px-6 py-4 flex-wrap">
+        <nav className="flex flex-wrap items-center justify-between gap-4 border-b px-4 py-3">
           {/* Logo */}
-          <div className="flex flex-col items-start">
+          <div className="flex items-center lg:flex-row flex-col gap-2 lg:gap-0 shrink-0">
             <Image
               src="/images/logo.webp"
-              alt="Omega Hospitals logo"
-              width={144}
-              height={64}
+              alt="logo image"
+              width={140}
+              height={60}
+              className="h-auto w-auto max-w-35"
             />
+            <a
+              href="#"
+              className="block lg:hidden rounded-3xl border border-[#e56e1b] px-4 py-1 text-sm text-[#e56e1b] whitespace-nowrap"
+            >
+              Request a Callback
+            </a>
           </div>
 
-          {/* Center Select - Absolutely centered on desktop */}
-          <div className="absolute left-1/2 -translate-x-1/2">
-            <select className="border border-gray-300 px-4 py-2 rounded-sm text-sm min-w-[240px]">
+          {/* Center Select */}
+          <div className="hidden lg:flex flex-1 justify-center">
+            <select className="border border-gray-300 p-2 rounded-sm text-sm">
               <option>Please Select a Center</option>
               <option value="omega-hospitals-gachibowli">
                 Omega Hospitals Gachibowli
@@ -105,347 +102,445 @@ const NavBar = () => {
             </select>
           </div>
 
-          {/* Right Side */}
-          <div className="flex items-center gap-6">
-            <div className="border-[#e56e1b] border py-2 px-5 rounded-3xl">
-              <a href="#" className="text-[#e56e1b] text-sm font-medium">
-                Request a Callback
-              </a>
-            </div>
-            <div className="lg:flex items-center hidden">
-              <div className="bg-[#289eb0] py-2 px-4 rounded-tl-lg rounded-bl-lg text-white text-[12px]">
+          {/* Right Section */}
+          <div className="flex flex-wrap items-center justify-end gap-4 shrink-0">
+            {/* Callback */}
+            <a
+              href="#"
+              className=" hidden lg:block rounded-3xl border border-[#e56e1b] px-4 py-1 text-sm text-[#e56e1b] whitespace-nowrap"
+            >
+              Request a Callback
+            </a>
+
+            {/* Phone Blocks */}
+            <div className="hidden lg:flex text-[12px] text-white">
+              <div className="bg-[#289eb0] px-3 py-1 rounded-l-lg">
                 <p>For Appointments</p>
-                <div className="flex gap-1 items-center">
-                  <PhoneCall size={15} /> 040 25552555
+                <div className="flex items-center gap-1">
+                  <PhoneCall size={14} />
+                  040 25552555
                 </div>
               </div>
-              <div className="bg-[#e6701c] py-2 px-4 rounded-tr-lg rounded-br-lg text-white text-[12px]">
+
+              <div className="bg-[#e6701c] px-3 py-1 rounded-r-lg">
                 <p>Emergency</p>
-                <div className="flex gap-1 items-center">
-                  <Ambulance size={15} /> 98490 22121
+                <div className="flex items-center gap-1">
+                  <Ambulance size={14} />
+                  98490 22121
                 </div>
+              </div>
+            </div>
+
+            <div className="lg:hidden ml-auto flex flex-col items-end gap-4 w-full max-w-xs">
+              {/* Icons Row */}
+              <div className="flex w-full items-center justify-between px-2">
+                <button className="bg-transparent">
+                  <ShoppingCart className="w-6 h-6 hover:text-[#e56e1b] transition-colors" />
+                </button>
+
+                <button className="bg-transparent">
+                  <Wallet className="w-6 h-6 hover:text-[#e56e1b] transition-colors" />
+                </button>
+
+                <a href="#">
+                  <User className="w-6 h-6 hover:text-[#e56e1b] transition-colors" />
+                </a>
+
+                <button
+                  onClick={() => setMobileMenuOpen((prev) => !prev)}
+                  aria-label="Toggle menu"
+                  className="bg-transparent"
+                >
+                  {mobileMenuOpen ? (
+                    <X className="w-6 h-6 transition-transform duration-200" />
+                  ) : (
+                    <Menu className="w-6 h-6 transition-transform duration-200" />
+                  )}
+                </button>
+              </div>
+
+              <div className="flex lg:hidden flex-1 justify-center">
+                <select className="border border-gray-300 p-2 rounded-sm text-sm">
+                  <option>Please Select a Center</option>
+                  <option value="omega-hospitals-gachibowli">
+                    Omega Hospitals Gachibowli
+                  </option>
+                  <option value="omega-hospitals-vizag">
+                    Omega Hospitals Vizag
+                  </option>
+                  <option value="omega-hospitals-guntur">
+                    Omega Hospitals Guntur
+                  </option>
+                  <option value="omega-hospitals-bhimavaram">
+                    Omega Hospitals Bhimavaram
+                  </option>
+                  <option value="omega-hospitals-jabalpur">
+                    Omega Hospitals Jabalpur
+                  </option>
+                  <option value="omega-hospitals-kurnool">
+                    Omega Hospitals Kurnool
+                  </option>
+                  <option value="omega-hospitals-surat">
+                    Omega Hospitals Surat
+                  </option>
+                  <option value="omega-hospitals-banjarahills">
+                    Omega Hospitals Banjarahills
+                  </option>
+                  <option value="omega-hospitals-karimnagar">
+                    Omega Hospitals Karimnagar
+                  </option>
+                  <option value="omega-hospitals-dehradun">
+                    Omega Hospitals Dehradun
+                  </option>
+                  <option value="omega-hospitals-tirupati">
+                    Omega Hospitals Tirupati
+                  </option>
+                </select>
               </div>
             </div>
           </div>
         </nav>
 
         {/* Main Navigation Menu */}
-        <div className="border-b">
-          <div className="flex items-center justify-between px-6 py-3 lg:flex-row flex-col">
-            {/* Desktop Navigation */}
-            <NavigationMenu className="hidden lg:block">
-              <NavigationMenuList className="gap-2">
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "bg-white text-sm font-medium"
-                    )}
-                  >
-                    Centre of Excellence
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-275 grid-cols-4 gap-x-10 gap-y-4 p-6">
-                      {centreOfExcellence.map((item) => (
-                        <li key={item}>
-                          <NavigationMenuLink asChild>
-                            <Link
+        <div className="hidden lg:flex items-center justify-between h-[4rem] md:h-[3rem]">
+          <nav className="flex lg:grow">
+            <div
+              className="flex flex-wrap items-center justify-between max-w-screen-xl px-4"
+              id="mobile-menu-2"
+            >
+              <div>
+                <ul className="pl-0 flex flex-col mt-4 mb-0 font-medium lg:flex-row lg:space-x-3.5 lg:mt-0 list-none omega-typography-display-xs-regular">
+                  <li className="relative group">
+                    <a
+                      href="#"
+                      className="flex items-center gap-1 leading-[30px] text-[12px] font-medium text-black"
+                    >
+                      Centre of Excellence
+                      <svg
+                        className="w-3 h-3 text-gray-500 transition-transform group-hover:rotate-180"
+                        viewBox="0 0 12 12"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M10.28 4.305L5.989 8.598 1.695 4.305A1 1 0 00.28 5.72l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z" />
+                      </svg>
+                    </a>
+
+                    {/* Mega Dropdown */}
+                    <div className="absolute left-0 top-full z-50 hidden w-screen bg-white shadow-lg group-hover:block">
+                      <div className="mx-auto max-w-screen-xl px-6 py-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3 text-sm">
+                          {[
+                            "Surgical Oncology",
+                            "Medical Oncology",
+                            "Radiation Oncology",
+                            "Hemato-Oncology and BMT",
+                            "Cardiology",
+                            "Cardiothoracic Surgery",
+                            "Critical Care",
+                            "Dental Services",
+                            "Dermatology",
+                            "ENT",
+                            "Emergency Medicine",
+                            "Gastroenterology",
+                            "General Medicine",
+                            "General Surgery including Laparoscopy",
+                            "Gynaecology",
+                            "Nephrology including Dialysis",
+                            "Neurology",
+                            "Neurosurgery",
+                            "Nuclear Medicine",
+                            "Orthopaedics",
+                            "Psychiatry",
+                            "Pulmonology",
+                            "Urology",
+                            "Vascular Surgery",
+                            "Breast Clinic",
+                            "Lipedema Clinic",
+                            "Spine Clinic",
+                            "Covid Center",
+                            "Plastic Surgery",
+                            "Surgical Gastroenterology",
+                            "Obesity Clinic",
+                          ].map((item) => (
+                            <a
+                              key={item}
                               href="#"
-                              className="block border-b border-[#e56e1b] pb-2 text-sm font-medium text-gray-800 transition-all duration-200"
+                              className="block border-b p-2 border-orange-400/60 hover:text-white hover:bg-[#e56e1b] transition-all duration-300"
                             >
                               {item}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "text-sm font-medium "
-                    )}
-                  >
-                    Our Services
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="w-[300px] p-6 space-y-3">
-                      {ourServices.map((item) => (
-                        <li key={item}>
-                          <NavigationMenuLink asChild>
-                            <Link
+                  <li className="relative group">
+                    <a
+                      href="#"
+                      className="flex items-center gap-1 leading-[30px] text-[12px] font-medium text-black"
+                    >
+                      Our Services
+                      <svg
+                        className="w-3 h-3 text-gray-500 transition-transform group-hover:rotate-180"
+                        viewBox="0 0 12 12"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M10.28 4.305L5.989 8.598 1.695 4.305A1 1 0 00.28 5.72l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z" />
+                      </svg>
+                    </a>
+
+                    {/* Dropdown */}
+                    <div className="absolute left-0 top-full z-50 hidden bg-white shadow-lg group-hover:block">
+                      <div className="px-4 py-4 min-w-[260px]">
+                        <ul className="flex flex-col gap-2 text-sm">
+                          {ourServices.map((service) => (
+                            <li key={service}>
+                              <a
+                                href="#"
+                                className="block border-b border-orange-400/60 p-2 hover:bg-[#e56e1b] hover:text-white transition-all duration-300"
+                              >
+                                {service}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li className="relative">
+                    <a
+                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      href="#"
+                    >
+                      Knowledge Centre
+                    </a>
+                  </li>
+
+                  <li className="relative">
+                    <a
+                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      href="#"
+                    >
+                      Cancer Journey
+                    </a>
+                  </li>
+
+                  <li className="relative md:hidden 2xl:block lg:block">
+                    <a
+                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      href="#"
+                    >
+                      Blogs
+                    </a>
+                  </li>
+
+                  <li className="relative group">
+                    <a
+                      href="#"
+                      className="flex items-center gap-1 leading-[30px] text-[12px] font-medium text-black"
+                    >
+                      Cancer
+                      <svg
+                        className="w-3 h-3 text-gray-500 transition-transform group-hover:rotate-180"
+                        viewBox="0 0 12 12"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M10.28 4.305L5.989 8.598 1.695 4.305A1 1 0 00.28 5.72l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z" />
+                      </svg>
+                    </a>
+
+                    {/* Mega Dropdown */}
+                    <div className="absolute left-0 top-full z-50 hidden w-screen bg-white shadow-lg group-hover:block">
+                      <div className="mx-auto max-w-screen-xl ">
+                        <div
+                          className="
+        grid
+        grid-cols-1
+        sm:grid-cols-2
+        md:grid-cols-3
+        lg:grid-cols-4
+        gap-x-8
+        gap-y-3
+        text-sm
+        max-h-[60vh]
+        overflow-y-auto
+      "
+                        >
+                          {cancerTypes.map((type) => (
+                            <a
+                              key={type}
                               href="#"
-                              className="block text-sm font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
+                              className="block border-b border-orange-400/60
+                                p-2
+                                hover:bg-[#e56e1b]
+                                hover:text-white
+                                transition-all
+                                duration-300
+                              "
                             >
-                              {item}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                              {type}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
-                    )}
-                    asChild
-                  >
-                    <Link href="#">Knowledge Centre</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+                  <li className="relative md:hidden 2xl:block lg:block">
+                    <a
+                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      href="#"
+                    >
+                      AboutUs
+                    </a>
+                  </li>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
-                    )}
-                    asChild
-                  >
-                    <Link href="#">Cancer Journey</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+                  <li className="relative md:hidden 2xl:block lg:block">
+                    <a
+                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      href="#"
+                    >
+                      FAQs
+                    </a>
+                  </li>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
-                    )}
-                    asChild
-                  >
-                    <Link href="#">Blogs</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+                  <li className="relative md:hidden 2xl:block lg:block">
+                    <a
+                      className="leading-[30px] font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      href="#"
+                    >
+                      News and Media
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "text-sm font-medium "
-                    )}
-                  >
-                    Cancer
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[900px] grid-cols-4 gap-x-12 gap-y-3 p-6">
-                      {cancerTypes.map((item) => (
-                        <li key={item}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href="#"
-                              className="block text-sm font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
-                            >
-                              {item}
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+          <div className="flex items-center space-x-3 justify-end ml-auto">
+            <button className="relative bg-transparent border-transparent">
+              <ShoppingCart className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
+            </button>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
-                    )}
-                    asChild
-                  >
-                    <Link href="#">About Us</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+            <button className="relative bg-transparent border-transparent">
+              <Search className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
+            </button>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
-                    )}
-                    asChild
-                  >
-                    <Link href="#">FAQs</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "bg-transparent hover:bg-transparent focus:bg-transparent text-sm font-medium hover:text-[#e56e1b]"
-                    )}
-                    asChild
-                  >
-                    <Link href="#">News and Media</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-              <NavigationMenuViewport />
-            </NavigationMenu>
-
-            {/* Right-side controls */}
-            <div className="flex items-center gap-8 w-full lg:w-auto">
-              {/* Desktop icons */}
-              <div className="hidden lg:flex items-center gap-8 text-gray-700">
-                <ShoppingCart className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
-                <Search className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
+            <a href="#">
+              <div className="flex items-center cursor-pointer">
                 <User className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
               </div>
+            </a>
 
-              {/* Mobile hamburger */}
+            <div className="flex lg:hidden">
               <button
-                onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden ml-auto"
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
+                aria-label="Toggle menu"
+                className="bg-transparent"
               >
-                <Menu className="w-8 h-8 text-gray-700" />
+                {mobileMenuOpen ? (
+                  <X className="w-6 h-6 transition-transform duration-200" />
+                ) : (
+                  <Menu className="w-6 h-6 transition-transform duration-200" />
+                )}
               </button>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Mobile Full-Screen Menu Overlay */}
-      <div
-        className={`fixed inset-0 z-[60] flex flex-col bg-white transition-all duration-300 ease-in-out ${
-          mobileMenuOpen
-            ? "translate-x-0 opacity-100"
-            : "translate-x-full opacity-0"
-        } ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
-      >
-        {/* Mobile Menu Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b">
-          <Image
-            src="/images/logo.webp"
-            alt="Omega Hospitals logo"
-            width={144}
-            height={64}
-          />
-          <button onClick={() => setMobileMenuOpen(false)}>
-            <X className="w-8 h-8 text-gray-700" />
-          </button>
-        </div>
-
-        {/* Mobile Menu Content */}
-        <div className="flex-1 overflow-y-auto">
-          <div className="px-6 py-8">
-            <Accordion type="multiple">
-              <AccordionItem value="centre">
-                <AccordionTrigger className="text-lg font-medium py-3">
+        <div
+          className={`
+    absolute left-0 right-0 top-full
+    z-40 bg-white lg:hidden
+    transition-all duration-300 ease-out
+    max-h-[calc(100vh-120px)]
+    overflow-y-auto
+    ${
+      mobileMenuOpen
+        ? "opacity-100 translate-y-0 pointer-events-auto"
+        : "opacity-0 -translate-y-2 pointer-events-none"
+    }
+  `}
+        >
+          <div className="px-4 py-6 space-y-4 border-t shadow-md">
+            <Accordion type="multiple" className="space-y-3">
+              {/* Centre of Excellence */}
+              <AccordionItem value="coe">
+                <AccordionTrigger className="rounded-xl bg-gray-50 px-4 py-4 text-left">
                   Centre of Excellence
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="grid grid-cols-2 gap-6 pt-2">
-                    {centreOfExcellence.map((item) => (
-                      <Link
-                        key={item}
-                        href="#"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-base text-gray-700 hover:text-[#e56e1b] transition-colors"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-                  </div>
+                  {centreOfExcellence.map((item) => (
+                    <Link
+                      key={item}
+                      href="#"
+                      className="block px-4 py-2 text-sm border-b hover:bg-[#e56e1b] hover:text-white"
+                    >
+                      {item}
+                    </Link>
+                  ))}
                 </AccordionContent>
               </AccordionItem>
 
+              {/* Our Services */}
               <AccordionItem value="services">
-                <AccordionTrigger className="text-lg font-medium py-3">
+                <AccordionTrigger className="rounded-xl bg-gray-50 px-4 py-4 text-left">
                   Our Services
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="space-y-3 pt-2 pl-4">
-                    {ourServices.map((item) => (
-                      <Link
-                        key={item}
-                        href="#"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block text-base text-gray-700 hover:text-[#e56e1b] transition-colors"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-                  </div>
+                  {ourServices.map((service) => (
+                    <Link
+                      key={service}
+                      href="#"
+                      className="block px-4 py-2 text-sm border-b hover:bg-[#e56e1b] hover:text-white"
+                    >
+                      {service}
+                    </Link>
+                  ))}
                 </AccordionContent>
               </AccordionItem>
 
+              {/* Static Links */}
+              {[
+                "Knowledge Centre",
+                "Cancer Journey",
+                "Blogs",
+                "About Us",
+                "FAQs",
+                "News and Media",
+              ].map((label) => (
+                <Link
+                  key={label}
+                  href="#"
+                  className="block rounded-xl bg-gray-50 px-4 py-4"
+                >
+                  {label}
+                </Link>
+              ))}
+
+              {/* Cancer */}
               <AccordionItem value="cancer">
-                <AccordionTrigger className="text-lg font-medium py-3">
+                <AccordionTrigger className="rounded-xl bg-gray-50 px-4 py-4 text-left">
                   Cancer
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="grid grid-cols-2 gap-6 pt-2">
-                    {cancerTypes.map((item) => (
-                      <Link
-                        key={item}
-                        href="#"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-base text-gray-700 hover:text-[#e56e1b] transition-colors"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-                  </div>
+                  {cancerTypes.map((type) => (
+                    <Link
+                      key={type}
+                      href="#"
+                      className="block px-4 py-2 text-sm border-b hover:bg-[#e56e1b] hover:text-white"
+                    >
+                      {type}
+                    </Link>
+                  ))}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-
-            {/* Plain menu items */}
-            <div className="mt-8 space-y-6 border-t pt-8">
-              <Link
-                href="#"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-lg font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
-              >
-                Knowledge Centre
-              </Link>
-              <Link
-                href="#"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-lg font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
-              >
-                Cancer Journey
-              </Link>
-              <Link
-                href="#"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-lg font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
-              >
-                Blogs
-              </Link>
-              <Link
-                href="#"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-lg font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
-              >
-                About Us
-              </Link>
-              <Link
-                href="#"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-lg font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
-              >
-                FAQs
-              </Link>
-              <Link
-                href="#"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-lg font-medium text-gray-800 hover:text-[#e56e1b] transition-colors"
-              >
-                News and Media
-              </Link>
-            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

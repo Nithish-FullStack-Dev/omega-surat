@@ -57,6 +57,9 @@
   .text-omega {
     @apply text-[#e56e1b] font-sans;
   }
+  .bg-omega {
+    @apply bg-[#e56e1b];
+  }
 }
 
 @theme inline {
