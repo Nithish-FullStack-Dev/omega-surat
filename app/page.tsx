@@ -7,7 +7,7 @@ import HealthcareStatsSection from "@/components/layout/HealthcareStatsSection";
 import MedicalTeamSection from "@/components/layout/MedicalTeamSection";
 import SuratLocationSection from "@/components/layout/SuratLocationSection";
 import VisitUs from "@/components/layout/VisitUs";
-import HeroCarousel from "@/components/pages/landing-page/HeroCarousel";
+import HeroCarousel from "@/components/layout/HeroCarousel";
 
 export default function HomePage() {
   return (
