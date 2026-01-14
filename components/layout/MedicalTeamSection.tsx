@@ -107,8 +107,8 @@ export default function MedicalTeamSection() {
           ))}
         </div>
 
-        <div className="md:hidden flex flex-col items-center">
-          <div className="relative w-full aspect-square max-w-[320px] sm:max-w-[360px] rounded-[2.5rem] overflow-hidden bg-linear-to-b from-[#fce3d2] to-[#E86B1E] mb-6 shadow-xl">
+        <div className="md:hidden flex flex-col items-center md:max-w-full max-w-[75%] mx-auto">
+          <div className="relative w-full aspect-square max-w-[320px] sm:max-w-90 rounded-[2.5rem] overflow-hidden bg-linear-to-b from-[#fce3d2] to-[#E86B1E] mb-6 shadow-xl">
             <Image
               src={activeDoc.image}
               alt={activeDoc.name}
@@ -132,7 +132,7 @@ export default function MedicalTeamSection() {
             </button>
           </div>
 
-          <div className="text-left w-full max-w-xl px-1 sm:px-2">
+          <div className="text-left px-1 sm:px-2">
             <h3 className="text-[#E86B1E] text-xl sm:text-2xl font-bold mb-3">
               {activeDoc.name}
             </h3>

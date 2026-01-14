@@ -157,7 +157,12 @@ export default function HeroCarousel() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[4/5] sm:aspect-[4/3] md:aspect-[21/9] lg:max-h-[700px] overflow-hidden font-sans bg-gray-50"
+      className="
+    relative w-full
+    h-[calc(100vh-64px)] md:h-auto
+    md:aspect-21/9 lg:max-h-175
+    overflow-hidden font-sans bg-gray-50
+  "
     >
       {SLIDES.map((slide, index) => (
         <div
@@ -191,7 +196,7 @@ export default function HeroCarousel() {
 
           {/* CONTENT SECTION */}
           <div className="relative flex-1 md:absolute md:inset-0 z-20 flex flex-col justify-center items-center text-center px-6 py-8 md:items-start md:text-left md:ml-[10%] lg:ml-[12%]">
-            <div className="w-full max-w-[520px] space-y-4 md:space-y-6">
+            <div className="w-full max-w-130 space-y-4 md:space-y-6">
               {slide.subTitle && (
                 <div className="animate-fade-in">{slide.subTitle}</div>
               )}
