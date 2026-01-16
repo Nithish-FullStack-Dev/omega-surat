@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Ambulance,
   PhoneCall,
@@ -9,7 +9,7 @@ import {
   User,
   Menu,
   X,
-  Wallet,
+  PlusSquare,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,6 +27,26 @@ import {
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  const updateHeaderHeight = () => {
+    if (navRef.current) {
+      setHeaderHeight(navRef.current.offsetHeight);
+    }
+  };
+
+  useEffect(() => {
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight);
+    return () => window.removeEventListener("resize", updateHeaderHeight);
+  }, []);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      updateHeaderHeight();
+    }
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -43,105 +63,54 @@ const NavBar = () => {
   return (
     <>
       <section className="sticky left-0 right-0 top-0 bg-white z-50 shadow-md">
-        {/* Top Bar */}
-        <nav className="flex flex-col gap-3 border-b px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
-          {/* Logo */}
-          <div className="flex items-center flex-wrap gap-2 justify-between w-full lg:w-auto shrink-0">
-            <Image
-              src="/images/logo.webp"
-              alt="logo image"
-              width={140}
-              height={60}
-              className="h-auto w-auto max-w-35"
-            />
-            <a
-              href="#"
-              className="lg:hidden rounded-3xl border border-[#e56e1b] px-4 py-1 text-xs text-[#e56e1b] whitespace-nowrap"
-            >
-              Request a Callback
-            </a>
-          </div>
-
-          {/* Center Select */}
-          <div className="hidden lg:flex flex-1 justify-center">
-            <select className="border border-gray-300 p-2 rounded-sm text-sm">
-              <option>Please Select a Center</option>
-              <option value="omega-hospitals-gachibowli">
-                Omega Hospitals Gachibowli
-              </option>
-              <option value="omega-hospitals-vizag">
-                Omega Hospitals Vizag
-              </option>
-              <option value="omega-hospitals-guntur">
-                Omega Hospitals Guntur
-              </option>
-              <option value="omega-hospitals-guntur">
-                Omega Hospitals Vijayawada
-              </option>
-              <option value="omega-hospitals-guntur">
-                Omega Hospitals Yamunagar
-              </option>
-              <option value="omega-hospitals-bhimavaram">
-                Omega Hospitals Bhimavaram
-              </option>
-              <option value="omega-hospitals-jabalpur">
-                Omega Hospitals Jabalpur
-              </option>
-              <option value="omega-hospitals-kurnool">
-                Omega Hospitals Kurnool
-              </option>
-              <option value="omega-hospitals-surat">
-                Omega Hospitals Surat
-              </option>
-              <option value="omega-hospitals-banjarahills">
-                Omega Hospitals Banjarahills
-              </option>
-              <option value="omega-hospitals-karimnagar">
-                Omega Hospitals Karimnagar
-              </option>
-              <option value="omega-hospitals-dehradun">
-                Omega Hospitals Dehradun
-              </option>
-              <option value="omega-hospitals-tirupati">
-                Omega Hospitals Tirupati
-              </option>
-            </select>
-          </div>
-
-          {/* Right Section */}
-          <div className="flex flex-wrap items-center justify-end gap-4 shrink-0">
-            {/* Callback */}
-            <a
-              href="#"
-              className=" hidden lg:block rounded-3xl border border-[#e56e1b] px-4 py-1 text-sm text-[#e56e1b] whitespace-nowrap"
-            >
-              Request a Callback
-            </a>
-
-            {/* Phone Blocks */}
-            <div className="hidden lg:flex text-[12px] text-white">
-              <div className="bg-[#289eb0] px-3 py-1 rounded-l-lg">
-                <p>For Appointments</p>
-                <div className="flex items-center gap-1">
-                  <PhoneCall size={14} />
-                  040 25552555
-                </div>
-              </div>
-
-              <div className="bg-[#e6701c] px-3 py-1 rounded-r-lg">
-                <p>Emergency</p>
-                <div className="flex items-center gap-1">
-                  <Ambulance size={14} />
-                  98490 22121
-                </div>
+        <nav ref={navRef} className="border-b px-4 py-3">
+          <div className="lg:hidden flex flex-col gap-3">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <Image
+                src="/images/logo.webp"
+                alt="logo image"
+                width={140}
+                height={60}
+                className="h-auto w-auto"
+              />
+              <div className="flex items-center gap-4">
+                <button>
+                  <ShoppingCart className="w-6 h-6" />
+                </button>
+                <button>
+                  <User className="w-6 h-6" />
+                </button>
+                <button>
+                  <PlusSquare className="w-6 h-6" />
+                </button>
+                <button
+                  onClick={() => setMobileMenuOpen((prev) => !prev)}
+                  aria-label="Toggle menu"
+                >
+                  {mobileMenuOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
+                </button>
               </div>
             </div>
-
-            {/* MOBILE CONTROLS */}
-            <div className="lg:hidden flex justify-between flex-wrap gap-3 w-full">
-              {/* Center Select */}
-              <select className="border border-gray-300 p-2 rounded-sm text-sm">
-                <option>Please Select a Center</option>
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <a
+                href="#"
+                className="rounded-3xl border border-[#e56e1b] px-5 py-2 text-sm text-[#e56e1b] font-medium whitespace-nowrap"
+              >
+                Request a Callback
+              </a>
+              <select className="border border-gray-300 rounded-md px-4 py-2 text-sm bg-white">
+                <option
+                  defaultValue=""
+                  disabled
+                  selected
+                  className="text-gray-500"
+                >
+                  Please select a center
+                </option>
                 <option value="omega-hospitals-gachibowli">
                   Omega Hospitals Gachibowli
                 </option>
@@ -151,10 +120,10 @@ const NavBar = () => {
                 <option value="omega-hospitals-guntur">
                   Omega Hospitals Guntur
                 </option>
-                <option value="omega-hospitals-guntur">
+                <option value="omega-hospitals-vijayawada">
                   Omega Hospitals Vijayawada
                 </option>
-                <option value="omega-hospitals-guntur">
+                <option value="omega-hospitals-yamunagar">
                   Omega Hospitals Yamunagar
                 </option>
                 <option value="omega-hospitals-bhimavaram">
@@ -182,37 +151,95 @@ const NavBar = () => {
                   Omega Hospitals Tirupati
                 </option>
               </select>
+            </div>
+          </div>
 
-              {/* Icons Row */}
-              <div className="grid grid-cols-4 gap-4 place-items-center">
-                <button>
-                  <ShoppingCart className="w-6 h-6" />
-                </button>
-
-                <button>
-                  <Wallet className="w-6 h-6" />
-                </button>
-
-                <button>
-                  <User className="w-6 h-6" />
-                </button>
-
-                <button
-                  onClick={() => setMobileMenuOpen((prev) => !prev)}
-                  aria-label="Toggle menu"
+          <div className="hidden lg:flex items-center justify-between w-full">
+            <Image
+              src="/images/logo.webp"
+              alt="logo image"
+              width={140}
+              height={60}
+              className="h-auto w-auto max-w-35 shrink-0"
+            />
+            <div className="flex-1 flex justify-center">
+              <select className="border border-gray-300 p-2 rounded-sm text-sm">
+                <option
+                  defaultValue=""
+                  disabled
+                  selected
+                  className="text-gray-500"
                 >
-                  {mobileMenuOpen ? (
-                    <X className="w-6 h-6" />
-                  ) : (
-                    <Menu className="w-6 h-6" />
-                  )}
-                </button>
+                  Please select a center
+                </option>
+                <option value="omega-hospitals-gachibowli">
+                  Omega Hospitals Gachibowli
+                </option>
+                <option value="omega-hospitals-vizag">
+                  Omega Hospitals Vizag
+                </option>
+                <option value="omega-hospitals-guntur">
+                  Omega Hospitals Guntur
+                </option>
+                <option value="omega-hospitals-vijayawada">
+                  Omega Hospitals Vijayawada
+                </option>
+                <option value="omega-hospitals-yamunagar">
+                  Omega Hospitals Yamunagar
+                </option>
+                <option value="omega-hospitals-bhimavaram">
+                  Omega Hospitals Bhimavaram
+                </option>
+                <option value="omega-hospitals-jabalpur">
+                  Omega Hospitals Jabalpur
+                </option>
+                <option value="omega-hospitals-kurnool">
+                  Omega Hospitals Kurnool
+                </option>
+                <option value="omega-hospitals-surat">
+                  Omega Hospitals Surat
+                </option>
+                <option value="omega-hospitals-banjarahills">
+                  Omega Hospitals Banjarahills
+                </option>
+                <option value="omega-hospitals-karimnagar">
+                  Omega Hospitals Karimnagar
+                </option>
+                <option value="omega-hospitals-dehradun">
+                  Omega Hospitals Dehradun
+                </option>
+                <option value="omega-hospitals-tirupati">
+                  Omega Hospitals Tirupati
+                </option>
+              </select>
+            </div>
+            <div className="flex items-center gap-4 shrink-0">
+              <a
+                href="#"
+                className="rounded-3xl border border-[#e56e1b] px-4 py-1 text-sm text-[#e56e1b] whitespace-nowrap"
+              >
+                Request a Callback
+              </a>
+              <div className="flex text-[12px] text-white">
+                <div className="bg-[#289eb0] px-3 py-1 rounded-l-lg">
+                  <p>For Appointments</p>
+                  <div className="flex items-center gap-1">
+                    <PhoneCall size={14} />
+                    040 25552555
+                  </div>
+                </div>
+                <div className="bg-[#e6701c] px-3 py-1 rounded-r-lg">
+                  <p>Emergency</p>
+                  <div className="flex items-center gap-1">
+                    <Ambulance size={14} />
+                    98490 22121
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </nav>
 
-        {/* Main Navigation Menu */}
         <div className="hidden lg:flex items-center justify-between h-16 md:h-12">
           <nav className="flex lg:grow">
             <div
@@ -236,7 +263,6 @@ const NavBar = () => {
                       </svg>
                     </a>
 
-                    {/* Mega Dropdown */}
                     <div className="absolute left-0 top-full z-50 hidden w-[90vw] bg-white shadow-lg group-hover:block">
                       <div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3 text-sm">
@@ -301,7 +327,6 @@ const NavBar = () => {
                       </svg>
                     </a>
 
-                    {/* Dropdown */}
                     <div className="absolute left-0 top-full z-50 hidden bg-white shadow-lg group-hover:block">
                       <div className="px-4 py-4 min-w-65">
                         <ul className="flex flex-col gap-2 text-sm">
@@ -322,7 +347,7 @@ const NavBar = () => {
 
                   <li className="relative">
                     <a
-                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline"
                       href="#"
                     >
                       Knowledge Centre
@@ -331,7 +356,7 @@ const NavBar = () => {
 
                   <li className="relative">
                     <a
-                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline"
                       href="#"
                     >
                       Cancer Journey
@@ -340,7 +365,7 @@ const NavBar = () => {
 
                   <li className="relative md:hidden 2xl:block lg:block">
                     <a
-                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline"
                       href="#"
                     >
                       Blogs
@@ -362,7 +387,6 @@ const NavBar = () => {
                       </svg>
                     </a>
 
-                    {/* Mega Dropdown */}
                     <div className="absolute left-0 top-full z-50 hidden w-[50vw] bg-white shadow-lg group-hover:block">
                       <div>
                         <div
@@ -401,16 +425,16 @@ const NavBar = () => {
 
                   <li className="relative md:hidden 2xl:block lg:block">
                     <a
-                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline"
                       href="#"
                     >
-                      AboutUs
+                      About Us
                     </a>
                   </li>
 
                   <li className="relative md:hidden 2xl:block lg:block">
                     <a
-                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline"
                       href="#"
                     >
                       FAQs
@@ -419,7 +443,7 @@ const NavBar = () => {
 
                   <li className="relative md:hidden 2xl:block lg:block">
                     <a
-                      className="leading-7.5 font-medium text-[12px] text-black no-underline font-omega-typography-text-sm-regular-font-family"
+                      className="leading-7.5 font-medium text-[12px] text-black no-underline"
                       href="#"
                     >
                       News and Media
@@ -444,40 +468,29 @@ const NavBar = () => {
                 <User className="w-6 h-6 cursor-pointer hover:text-[#e56e1b] transition-colors" />
               </div>
             </a>
-
-            {/* <div className="flex lg:hidden">
-              <button
-                onClick={() => setMobileMenuOpen((prev) => !prev)}
-                aria-label="Toggle menu"
-                className="bg-transparent"
-              >
-                {mobileMenuOpen ? (
-                  <X className="w-6 h-6 transition-transform duration-200" />
-                ) : (
-                  <Menu className="w-6 h-6 transition-transform duration-200" />
-                )}
-              </button>
-            </div> */}
           </div>
         </div>
 
         <div
           className={`
-    absolute left-0 right-0 top-full
-    z-40 bg-white lg:hidden
-    transition-all duration-300 ease-out
-     max-h-[calc(100vh-64px)]
-    overflow-y-auto
-    ${
-      mobileMenuOpen
-        ? "opacity-100 translate-y-0 pointer-events-auto"
-        : "opacity-0 -translate-y-2 pointer-events-none"
-    }
-  `}
+            absolute left-0 right-0 top-full
+            z-40 bg-white lg:hidden
+            transition-all duration-300 ease-out
+            overflow-y-auto
+            ${
+              mobileMenuOpen
+                ? "opacity-100 translate-y-0 pointer-events-auto"
+                : "opacity-0 -translate-y-2 pointer-events-none"
+            }
+          `}
+          style={
+            mobileMenuOpen
+              ? { maxHeight: `calc(100vh - ${headerHeight}px)` }
+              : {}
+          }
         >
           <div className="px-4 py-6 space-y-4 border-t shadow-md">
             <Accordion type="multiple" className="space-y-3">
-              {/* Centre of Excellence */}
               <AccordionItem value="coe">
                 <AccordionTrigger className="rounded-xl bg-gray-50 px-4 py-4 text-left">
                   Centre of Excellence
@@ -495,7 +508,6 @@ const NavBar = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              {/* Our Services */}
               <AccordionItem value="services">
                 <AccordionTrigger className="rounded-xl bg-gray-50 px-4 py-4 text-left">
                   Our Services
@@ -513,7 +525,6 @@ const NavBar = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              {/* Cancer */}
               <AccordionItem value="cancer">
                 <AccordionTrigger className="rounded-xl bg-gray-50 px-4 py-4 text-left">
                   Cancer
@@ -531,7 +542,6 @@ const NavBar = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              {/* Static Links */}
               {[
                 "Knowledge Centre",
                 "Cancer Journey",

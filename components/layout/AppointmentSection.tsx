@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import RequestForm from "../helpers/RequestForm";
 
 const AppointmentSection = () => {
   return (
@@ -32,87 +33,7 @@ const AppointmentSection = () => {
                 </p>
               </div>
 
-              <form className="space-y-4">
-                {/* Row 1 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#E86C1F] bg-white placeholder-gray-300"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Contact"
-                    className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#E86C1F] bg-white placeholder-gray-300"
-                  />
-                </div>
-
-                {/* Row 2 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="email"
-                    placeholder="Email ID"
-                    className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#E86C1F] bg-white placeholder-gray-300"
-                  />
-                  <div className="relative">
-                    <select className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#E86C1F] bg-white text-gray-500 appearance-none">
-                      <option>Select Departments</option>
-                      <option>Oncology</option>
-                      <option>Cardiology</option>
-                      <option>Neurology</option>
-                    </select>
-                    {/* Custom Arrow for Select */}
-                    <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                      <svg
-                        className="w-4 h-4 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M19 9l-7 7-7-7"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Row 3 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="dd/mm/yyyy"
-                    onFocus={(e) => (e.target.type = "date")}
-                    onBlur={(e) => (e.target.type = "text")}
-                    className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#E86C1F] bg-white placeholder-gray-300 text-gray-500"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Time"
-                    onFocus={(e) => (e.target.type = "time")}
-                    onBlur={(e) => (e.target.type = "text")}
-                    className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#E86C1F] bg-white placeholder-gray-300 text-gray-500"
-                  />
-                </div>
-
-                {/* Text Area */}
-                <textarea
-                  placeholder="Your Message"
-                  rows={4}
-                  className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#E86C1F] bg-white placeholder-gray-300 resize-none"
-                ></textarea>
-
-                {/* Button */}
-                <button
-                  type="button"
-                  className="w-full bg-[#E86C1F] hover:bg-[#d65b12] text-white font-semibold py-3 rounded-md transition-colors duration-300 mt-2"
-                >
-                  Make Appointment
-                </button>
-              </form>
+              <RequestForm />
             </div>
 
             {/* How to Reach Section */}

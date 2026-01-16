@@ -1,17 +1,7 @@
 "use client";
 
-import { Hospital } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import Image from "next/image";
+import RequestForm from "../helpers/RequestForm";
 
 const features = [
   {
@@ -75,45 +65,7 @@ export default function SuratLocationSection() {
                   shortly.
                 </p>
               </div>
-              <form className="mt-8 space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <Input placeholder="Name" className="h-12 text-base" />
-                  <Input placeholder="Contact" className="h-12 text-base" />
-                  <Input placeholder="Email ID" className="h-12 text-base" />
-                  <Select>
-                    <SelectTrigger className="min-h-12 px-3 text-base w-full">
-                      <SelectValue placeholder="Select Department" />
-                    </SelectTrigger>
-
-                    <SelectContent>
-                      <SelectItem value="oncology">Oncology</SelectItem>
-                      <SelectItem value="cardiology">Cardiology</SelectItem>
-                      <SelectItem value="neurology">Neurology</SelectItem>
-                    </SelectContent>
-                  </Select>
-
-                  <Input
-                    placeholder="Address"
-                    className="h-12 text-base md:col-span-2"
-                  />
-                  <Input
-                    placeholder="Time"
-                    className="h-12 text-base md:col-span-2"
-                  />
-                  <Textarea
-                    placeholder="Your Message"
-                    rows={5}
-                    className="md:col-span-2 resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full h-12 bg-[#e56e1b] hover:bg-[#d55e0b] text-white font-semibold text-base rounded-xl transition-all"
-                >
-                  Make Appointment
-                </Button>
-              </form>
+              <RequestForm />
             </div>
           </div>
 
