@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const MobileBottomNav = () => {
   return (
-    <div className="fixed w-full z-51 shadow-lg text-xs leading-3 bottom-0 bg-linear-to-t from-[#f2f2f2] to-[#ececec] block sm:hidden">
+    <div className="fixed w-full z-39 shadow-lg text-xs leading-3 bottom-0 bg-linear-to-t from-[#f2f2f2] to-[#ececec] block sm:hidden">
       <ul className="list-none text-center m-0 pl-0 py-3 flex justify-between flex-wrap font-bold space-x-2">
         <li className="px-1 border-solid border-r-0 border-y-0 border-l-2 border-gray-300 first:border-none ml-0">
           <Link

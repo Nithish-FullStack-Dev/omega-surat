@@ -29,15 +29,23 @@ const features = [
 
 export default function SuratLocationSection() {
   return (
-    <section className="relative bg-linear-to-br from-[#E56E1B05] to-white py-16 lg:py-24 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
+      <div
+        className="absolute inset-0 opacity-52"
+        style={{
+          backgroundImage: "url('/images/advance-health-care.jpg')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      />
       <div className="absolute -top-1 right-0 -left-0.5 z-30 opacity-90">
-        <Image
+        {/* <Image
           alt="layer_1"
           src="/images/health-care/Layer_2.png"
           height={158}
           width={158}
           style={{ transform: "rotate(180deg)" }}
-        />
+        /> */}
       </div>
       <div className="mx-auto md:mx-20 px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start">
@@ -55,7 +63,7 @@ export default function SuratLocationSection() {
             </div>
 
             {/* Request Call Back Form Card */}
-            <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-10">
+            <div className="bg-white rounded-3xl shadow-sm p-8 lg:p-10">
               <div className="flex-center-col">
                 <h4 className="font-bold text-[#e56e1b]">
                   Request a Call Back Today

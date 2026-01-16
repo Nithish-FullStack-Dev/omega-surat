@@ -71,38 +71,38 @@ const NavBar = () => {
                 alt="logo image"
                 width={140}
                 height={60}
-                className="h-auto w-auto"
+                className="w-24 sm:w-28 md:w-35 h-auto"
               />
               <div className="flex items-center gap-4">
                 <button>
-                  <ShoppingCart className="w-6 h-6" />
+                  <ShoppingCart className="sm:w-6 w-4 sm:h-6 h-4" />
                 </button>
                 <button>
-                  <User className="w-6 h-6" />
+                  <User className="sm:w-6 w-4 sm:h-6 h-4" />
                 </button>
                 <button>
-                  <PlusSquare className="w-6 h-6" />
+                  <PlusSquare className="sm:w-6 w-4 sm:h-6 h-4" />
                 </button>
                 <button
                   onClick={() => setMobileMenuOpen((prev) => !prev)}
                   aria-label="Toggle menu"
                 >
                   {mobileMenuOpen ? (
-                    <X className="w-6 h-6" />
+                    <X className="sm:w-6 w-4 sm:h-6 h-4" />
                   ) : (
-                    <Menu className="w-6 h-6" />
+                    <Menu className="sm:w-6 w-4 sm:h-6 h-4" />
                   )}
                 </button>
               </div>
             </div>
-            <div className="flex items-center justify-between flex-wrap gap-3">
+            <div className="flex items-center justify-between gap-3">
               <a
                 href="#"
-                className="rounded-3xl border border-[#e56e1b] px-5 py-2 text-sm text-[#e56e1b] font-medium whitespace-nowrap"
+                className="rounded-3xl border border-[#e56e1b] sm:px-5 px-3 py-1 sm:py-2 sm:text-sm text-[12px] text-[#e56e1b] font-medium whitespace-nowrap"
               >
                 Request a Callback
               </a>
-              <select className="border border-gray-300 rounded-md px-4 py-2 text-sm bg-white">
+              <select className="border border-gray-300 rounded-md px-4 py-2 text-sm bg-white w-45 sm:w-55">
                 <option
                   defaultValue=""
                   disabled

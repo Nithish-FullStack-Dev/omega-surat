@@ -234,7 +234,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* PAGINATION DOTS */}
-      <div className="absolute md:bottom-6 bottom-0 left-1/2 -translate-x-1/2 flex gap-3 z-40">
+      <div className="absolute md:bottom-6 bottom-0 left-1/2 -translate-x-1/2 flex gap-3 z-38">
         {SLIDES.map((_, idx) => (
           <button
             key={idx}

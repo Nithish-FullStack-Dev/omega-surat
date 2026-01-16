@@ -49,7 +49,7 @@ export default function HealthcareStatsSection() {
               </div>
 
               {/* Number */}
-              <p className="text-[16px] font-bold text-gray-900 leading-tight">
+              <p className="text-[16px] font-bold text-gray-900 leading-loose mb-2">
                 <AnimatedCounter value={stat.number} />
               </p>
 

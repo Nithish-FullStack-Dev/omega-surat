@@ -70,7 +70,7 @@ const AppointmentSection = () => {
                 alt="Doctor Consultation"
                 fill
                 className="object-cover rounded-sm shadow-sm"
-                data-aos="flip-left"
+                data-aos="fade-in"
               />
             </div>
 
