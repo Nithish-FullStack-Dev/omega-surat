@@ -1,32 +1,70 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { slides } from "../constants/ModernMachine";
 
+const TRANSITION_DURATION = 700;
+const AUTO_PLAY_DELAY = 5000;
+
 const ModernMachine = () => {
-  const [current, setCurrent] = useState(0);
+  const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
+
+  const [current, setCurrent] = useState(1);
+  const [isAnimating, setIsAnimating] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (isPaused) return;
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [current, isPaused]);
 
-  const nextSlide = useCallback(() => {
-    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  }, []);
+    const interval = setInterval(() => {
+      setCurrent((prev) => prev + 1);
+    }, AUTO_PLAY_DELAY);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  useEffect(() => {
+    if (current === extendedSlides.length - 1) {
+      setTimeout(() => {
+        setIsAnimating(false);
+        setCurrent(1);
+      }, TRANSITION_DURATION);
+    }
+
+    if (current === 0) {
+      setTimeout(() => {
+        setIsAnimating(false);
+        setCurrent(slides.length);
+      }, TRANSITION_DURATION);
+    }
+  }, [current, extendedSlides.length]);
+
+  useEffect(() => {
+    if (!isAnimating) {
+      requestAnimationFrame(() => {
+        setIsAnimating(true);
+      });
+    }
+  }, [isAnimating]);
+
+  const nextSlide = () => {
+    setCurrent((prev) => prev + 1);
+  };
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    setCurrent((prev) => prev - 1);
   };
+
+  const realIndex =
+    current === 0
+      ? slides.length - 1
+      : current === extendedSlides.length - 1
+      ? 0
+      : current - 1;
 
   return (
     <section className="relative w-full">
-      {/* Background image (Modern Machines text is part of image) */}
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center"
         style={{
@@ -35,36 +73,22 @@ const ModernMachine = () => {
         }}
       />
 
-      {/* ---------- TOP TEXT ---------- */}
-      <div className="max-w-5xl mx-auto text-center mb-12 px-4">
-        {/* <h2 className="text-3xl md:text-4xl font-bold text-[#e56e1b]">
-          Modern Machines, Trusted Outcomes
-        </h2>
-        <p className="mt-4 text-slate-600 text-sm md:text-base">
-          Omega Hospitals features advanced medical technology, including
-          high-precision imaging, robotic surgery systems, and modern diagnostic
-          tools, ensuring accurate treatment and faster recovery for every
-          patient.
-        </p> */}
-      </div>
-
       <div
         className="relative w-[90%] mx-auto overflow-hidden group"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* --- Slider Track --- */}
         <div
-          className="flex transition-transform duration-700 ease-in-out h-full"
+          className={`flex h-full ${
+            isAnimating ? "transition-transform duration-700 ease-in-out" : ""
+          }`}
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
-          {slides.map((slide) => (
+          {extendedSlides.map((slide, index) => (
             <div
-              key={slide.id}
-              className="w-full shrink-0 grid grid-cols-1 md:grid-cols-2 gap-8
-                         px-10 py-14"
+              key={`${slide.id}-${index}`}
+              className="w-full shrink-0 grid grid-cols-1 md:grid-cols-2 gap-8 px-10 py-14"
             >
-              {/* IMAGE */}
               <div className="flex items-center justify-center">
                 <Image
                   src={slide.image}
@@ -76,7 +100,6 @@ const ModernMachine = () => {
                 />
               </div>
 
-              {/* TEXT */}
               <div className="flex flex-col">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#e56e1b]">
                   {slide.title}
@@ -96,57 +119,35 @@ const ModernMachine = () => {
                     </li>
                   ))}
                 </ul>
-
-                {/* BUTTONS */}
-                <div className="mt-auto pt-8 flex gap-4">
-                  <button
-                    className="px-6 py-2 border border-[#e56e1b] text-[#e56e1b]
-                                     rounded-md hover:bg-[#e56e1b] hover:text-white transition"
-                  >
-                    Know More ↗
-                  </button>
-
-                  <button
-                    className="px-6 py-2 bg-teal-600 text-white rounded-md
-                                     hover:bg-teal-700 transition"
-                  >
-                    ⬇ Download PDF
-                  </button>
-                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* --- Controls: Arrows --- */}
         <button
           onClick={prevSlide}
-          className="absolute left-3 top-1/2 -translate-y-1/2
-                     bg-white border rounded-full p-2 shadow hover:bg-slate-100"
+          className="absolute left-3 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow hover:bg-slate-100"
         >
           ‹
         </button>
 
         <button
           onClick={nextSlide}
-          className="absolute right-3 top-1/2 -translate-y-1/2
-                     bg-white border rounded-full p-2 shadow hover:bg-slate-100"
+          className="absolute right-3 top-1/2 -translate-y-1/2 bg-white border rounded-full p-2 shadow hover:bg-slate-100"
         >
           ›
         </button>
 
-        {/* --- Controls: Dots --- */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
           {slides.map((_, idx) => (
             <button
               key={idx}
-              onClick={() => setCurrent(idx)}
+              onClick={() => setCurrent(idx + 1)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                current === idx
+                realIndex === idx
                   ? "bg-[#e56e1b] w-6"
                   : "bg-slate-300 hover:bg-slate-400"
               }`}
-              aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
         </div>

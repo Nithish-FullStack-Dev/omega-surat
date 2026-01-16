@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "aos/dist/aos.css";
 import NavBar from "@/components/layout/NavBar";
 import localFont from "next/font/local";
 import Footer from "@/components/layout/Footer";
+import AOSProvider from "@/components/providers/AOSProvider";
 
 const satoshi = localFont({
   src: [
@@ -41,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${satoshi.variable} font-sans antialiased`}>
+        <AOSProvider />
         <NavBar />
         {children}
         <Footer />

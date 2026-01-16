@@ -46,7 +46,7 @@ const NavBar = () => {
         {/* Top Bar */}
         <nav className="flex flex-col gap-3 border-b px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
           {/* Logo */}
-          <div className="flex items-center justify-between w-full lg:w-auto shrink-0">
+          <div className="flex items-center flex-wrap gap-2 justify-between w-full lg:w-auto shrink-0">
             <Image
               src="/images/logo.webp"
               alt="logo image"
@@ -74,6 +74,12 @@ const NavBar = () => {
               </option>
               <option value="omega-hospitals-guntur">
                 Omega Hospitals Guntur
+              </option>
+              <option value="omega-hospitals-guntur">
+                Omega Hospitals Vijayawada
+              </option>
+              <option value="omega-hospitals-guntur">
+                Omega Hospitals Yamunagar
               </option>
               <option value="omega-hospitals-bhimavaram">
                 Omega Hospitals Bhimavaram
@@ -132,7 +138,51 @@ const NavBar = () => {
             </div>
 
             {/* MOBILE CONTROLS */}
-            <div className="lg:hidden flex flex-col gap-3 w-full">
+            <div className="lg:hidden flex justify-between flex-wrap gap-3 w-full">
+              {/* Center Select */}
+              <select className="border border-gray-300 p-2 rounded-sm text-sm">
+                <option>Please Select a Center</option>
+                <option value="omega-hospitals-gachibowli">
+                  Omega Hospitals Gachibowli
+                </option>
+                <option value="omega-hospitals-vizag">
+                  Omega Hospitals Vizag
+                </option>
+                <option value="omega-hospitals-guntur">
+                  Omega Hospitals Guntur
+                </option>
+                <option value="omega-hospitals-guntur">
+                  Omega Hospitals Vijayawada
+                </option>
+                <option value="omega-hospitals-guntur">
+                  Omega Hospitals Yamunagar
+                </option>
+                <option value="omega-hospitals-bhimavaram">
+                  Omega Hospitals Bhimavaram
+                </option>
+                <option value="omega-hospitals-jabalpur">
+                  Omega Hospitals Jabalpur
+                </option>
+                <option value="omega-hospitals-kurnool">
+                  Omega Hospitals Kurnool
+                </option>
+                <option value="omega-hospitals-surat">
+                  Omega Hospitals Surat
+                </option>
+                <option value="omega-hospitals-banjarahills">
+                  Omega Hospitals Banjarahills
+                </option>
+                <option value="omega-hospitals-karimnagar">
+                  Omega Hospitals Karimnagar
+                </option>
+                <option value="omega-hospitals-dehradun">
+                  Omega Hospitals Dehradun
+                </option>
+                <option value="omega-hospitals-tirupati">
+                  Omega Hospitals Tirupati
+                </option>
+              </select>
+
               {/* Icons Row */}
               <div className="grid grid-cols-4 gap-4 place-items-center">
                 <button>
@@ -158,32 +208,6 @@ const NavBar = () => {
                   )}
                 </button>
               </div>
-
-              {/* Center Select */}
-              <select className="w-full border border-gray-300 p-2 rounded-sm text-sm">
-                <option>Please Select a Center</option>
-                <option value="omega-hospitals-gachibowli">
-                  Omega Hospitals Gachibowli
-                </option>
-                <option value="omega-hospitals-vizag">
-                  Omega Hospitals Vizag
-                </option>
-                <option value="omega-hospitals-guntur">
-                  Omega Hospitals Guntur
-                </option>
-                <option value="omega-hospitals-bhimavaram">
-                  Omega Hospitals Bhimavaram
-                </option>
-                <option value="omega-hospitals-jabalpur">
-                  Omega Hospitals Jabalpur
-                </option>
-                <option value="omega-hospitals-kurnool">
-                  Omega Hospitals Kurnool
-                </option>
-                <option value="omega-hospitals-surat">
-                  Omega Hospitals Surat
-                </option>
-              </select>
             </div>
           </div>
         </nav>
@@ -442,7 +466,7 @@ const NavBar = () => {
     absolute left-0 right-0 top-full
     z-40 bg-white lg:hidden
     transition-all duration-300 ease-out
-  h-dvh
+     max-h-[calc(100vh-64px)]
     overflow-y-auto
     ${
       mobileMenuOpen
@@ -489,24 +513,6 @@ const NavBar = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              {/* Static Links */}
-              {[
-                "Knowledge Centre",
-                "Cancer Journey",
-                "Blogs",
-                "About Us",
-                "FAQs",
-                "News and Media",
-              ].map((label) => (
-                <Link
-                  key={label}
-                  href="#"
-                  className="block rounded-xl bg-gray-50 px-4 py-4"
-                >
-                  {label}
-                </Link>
-              ))}
-
               {/* Cancer */}
               <AccordionItem value="cancer">
                 <AccordionTrigger className="rounded-xl bg-gray-50 px-4 py-4 text-left">
@@ -524,6 +530,24 @@ const NavBar = () => {
                   ))}
                 </AccordionContent>
               </AccordionItem>
+
+              {/* Static Links */}
+              {[
+                "Knowledge Centre",
+                "Cancer Journey",
+                "Blogs",
+                "About Us",
+                "FAQs",
+                "News and Media",
+              ].map((label) => (
+                <Link
+                  key={label}
+                  href="#"
+                  className="block rounded-xl bg-gray-50 px-4 py-4"
+                >
+                  {label}
+                </Link>
+              ))}
             </Accordion>
           </div>
         </div>
