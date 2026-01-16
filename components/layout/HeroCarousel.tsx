@@ -5,7 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { SLIDES } from "../constants/HomeSlider";
+import { SLIDES } from "../constants/HeroSlider";
 
 export default function HeroCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,7 +29,7 @@ export default function HeroCarousel() {
         setIsAnimating(false);
         return;
       }
-
+      const content = nextSlide.querySelectorAll("[data-animate]");
       const xMove = direction === "next" ? 100 : -100;
 
       // Reset next slide position before animating in
@@ -64,6 +64,22 @@ export default function HeroCarousel() {
           ease: "power3.inOut",
         },
         0
+      );
+
+      gsap.fromTo(
+        content,
+        {
+          y: 40,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.6,
+          delay: 0.3,
+        }
       );
     }
   );
@@ -139,31 +155,46 @@ export default function HeroCarousel() {
           </div>
 
           {/* CONTENT SECTION */}
-          <div className="relative flex-1 md:absolute md:inset-0 z-20 flex flex-col justify-center items-center text-center px-6 py-8 md:items-start md:text-left md:ml-[10%] lg:ml-[12%]">
+          <div className="relative flex-1 md:absolute md:inset-0 z-20 flex flex-col justify-center items-center text-center px-6 py-8 md:items-start md:text-left md:ml-[10%] lg:ml-[9%]">
             <div className="w-full max-w-130 space-y-4 md:space-y-6">
-              {slide.subTitle && (
-                <div className="animate-fade-in">{slide.subTitle}</div>
-              )}
+              {slide.subTitle && <div data-animate>{slide.subTitle}</div>}
 
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              <h2
+                data-animate
+                className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 lg:leading-16"
+              >
                 {slide.title}
               </h2>
 
               {slide.description && (
-                <p className="text-sm md:text-lg text-gray-700 max-w-md">
+                <p
+                  data-animate
+                  className="text-sm md:text-lg text-gray-700 max-w-md"
+                >
                   {slide.description}
                 </p>
               )}
 
               {slide.emergency && (
-                <p className="text-sm font-semibold text-[#258195] tracking-wide uppercase">
+                <p
+                  data-animate
+                  className="text-sm font-semibold text-[#258195] uppercase"
+                >
                   {slide.emergency}
                 </p>
               )}
 
-              <button className="mx-auto md:mx-0 bg-[#E56E1B] hover:bg-[#c45a13] transition-colors text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 shadow-lg">
+              <button
+                data-animate
+                className="group mx-auto md:mx-0 bg-[#E56E1B] text-white px-8 py-3 rounded-full flex items-center gap-2"
+              >
                 Book Consultation
-                <ArrowUpRight size={20} />
+                <ArrowUpRight
+                  size={20}
+                  className="transition-transform duration-300 ease-out
+      group-hover:translate-x-1
+      group-hover:-translate-y-1"
+                />
               </button>
             </div>
           </div>

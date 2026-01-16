@@ -52,7 +52,11 @@ export default function SuratLocationSection() {
       <div className="mx-auto md:mx-20 px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start">
           {/* Left Column - Text + Form */}
-          <div className="space-y-10">
+          <div
+            className="space-y-10"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
             <div>
               <h1 className="text-3xl lg:text-4xl font-normal text-gray-900 leading-tight">
                 Surat's Trusted Partner in
@@ -114,7 +118,11 @@ export default function SuratLocationSection() {
           </div>
 
           {/* Right Column - Why Trust Section */}
-          <div className="space-y-8 text-justify">
+          <div
+            className="space-y-8 text-justify"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
             <p className="mt-6 text-black font-normal text-base font-sans leading-relaxed ">
               Located in the vibrant heart of Surat, Athwa Gate – Gujarat's
               Diamond and Textile Capital, Omega Hospitals has emerged as South
@@ -142,6 +150,9 @@ export default function SuratLocationSection() {
                     pl-14
                     flex-center-col
                   "
+                  data-aos="fade-up"
+                  data-aos-duration="800"
+                  data-aos-delay={index * 100}
                 >
                   {/* Icon pinned top-left */}
                   <div className="absolute left-0 top-4">

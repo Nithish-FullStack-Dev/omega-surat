@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Doctor, doctors } from "../constants/MedicalTeam";
 
 const DoctorCardDesktop: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
@@ -20,16 +20,36 @@ const DoctorCardDesktop: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
         </div>
 
         <div className="flex flex-col items-center p-4 sm:p-5 flex-1">
-          <h3 className="text-[#E86B1E] text-lg sm:text-xl font-bold mb-3 text-center">
+          <h3
+            className="text-[#E86B1E] text-lg sm:text-xl font-bold mb-3 text-center"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="0"
+          >
             {doctor.name}
           </h3>
-          <p className="text-[11px] sm:text-xs text-gray-500 font-medium leading-relaxed mb-4 text-center px-2 sm:px-4">
+          <p
+            className="text-[11px] sm:text-xs text-gray-500 font-medium leading-relaxed mb-4 text-center px-2 sm:px-4"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="300"
+          >
             {doctor.quals}
           </p>
 
-          <button className="mt-auto flex items-center gap-2 bg-[#E86B1E] text-white text-sm font-bold px-6 sm:px-8 py-3 rounded-full hover:bg-[#cf5a15] transition-colors shadow-md">
+          <button
+            className="group mt-auto flex items-center gap-2 bg-[#E86B1E] text-white text-sm font-bold px-6 sm:px-8 py-3 rounded-full hover:bg-[#cf5a15] transition-colors shadow-md"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="700"
+          >
             Book Appointment
-            <span className="text-sm">↗</span>
+            <ArrowUpRight
+              size={20}
+              className="transition-transform duration-300 ease-out
+      group-hover:translate-x-1
+      group-hover:-translate-y-1"
+            />
           </button>
         </div>
       </div>
@@ -61,12 +81,21 @@ export default function MedicalTeamSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-8 sm:mb-12 md:mb-20">
-          <div className="inline-block bg-[#FFF4EE] rounded-full px-6 sm:px-8 py-2.5 sm:py-3 mb-4">
+          <div
+            className="inline-block bg-[#FFF4EE] rounded-full px-6 sm:px-8 py-2.5 sm:py-3 mb-4"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
             <h2 className="text-[#E86B1E] font-extrabold text-base sm:text-lg tracking-tight">
               Our Medical Team
             </h2>
           </div>
-          <h1 className="text-xs sm:text-sm md:text-lg text-gray-700 font-medium">
+          <h1
+            className="text-xs sm:text-sm md:text-lg text-gray-700 font-medium"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="100"
+          >
             Meet the Specialists Leading Your Treatment
           </h1>
         </div>
@@ -103,19 +132,44 @@ export default function MedicalTeamSection() {
           </div>
 
           <div className="text-left px-1 sm:px-2">
-            <h3 className="text-[#E86B1E] text-xl sm:text-2xl font-bold mb-3">
+            <h3
+              className="text-[#E86B1E] text-xl sm:text-2xl font-bold mb-3"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="0"
+            >
               {activeDoc.name}
             </h3>
-            <p className="text-gray-700 text-sm font-medium leading-relaxed mb-4">
+            <p
+              className="text-gray-700 text-sm font-medium leading-relaxed mb-4"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
               {activeDoc.quals}
             </p>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+            <p
+              className="text-gray-600 text-sm leading-relaxed mb-6"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="700"
+            >
               {activeDoc.bio}
             </p>
 
-            <button className="w-full bg-[#E86B1E] text-white font-bold py-3.5 sm:py-4 rounded-full flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform">
+            <button
+              className="group  w-full bg-[#E86B1E] text-white font-bold py-3.5 sm:py-4 rounded-full flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="1000"
+            >
               Book Appointment
-              <span className="text-xl">↗</span>
+              <ArrowUpRight
+                size={20}
+                className="transition-transform duration-300 ease-out
+      group-hover:translate-x-1
+      group-hover:-translate-y-1"
+              />
             </button>
           </div>
         </div>

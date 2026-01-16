@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { slides } from "../constants/ModernMachine";
+import gsap from "gsap";
 
 const TRANSITION_DURATION = 700;
 const AUTO_PLAY_DELAY = 5000;
@@ -13,6 +14,7 @@ const ModernMachine = () => {
   const [current, setCurrent] = useState(1);
   const [isAnimating, setIsAnimating] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isPaused) return;
@@ -39,6 +41,26 @@ const ModernMachine = () => {
       }, TRANSITION_DURATION);
     }
   }, [current, extendedSlides.length]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    if (current === 0 || current === extendedSlides.length - 1) return;
+
+    const ctx = gsap.context(() => {
+      const activeSlide = containerRef.current!.children[
+        current
+      ] as HTMLElement;
+      const items = activeSlide.querySelectorAll("[data-animate]");
+
+      gsap.fromTo(
+        items,
+        { autoAlpha: 0 },
+        { autoAlpha: 1, stagger: 0.08, duration: 0.6 }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [current]);
 
   useEffect(() => {
     if (!isAnimating) {
@@ -79,6 +101,7 @@ const ModernMachine = () => {
         onMouseLeave={() => setIsPaused(false)}
       >
         <div
+          ref={containerRef}
           className={`flex h-full ${
             isAnimating ? "transition-transform duration-700 ease-in-out" : ""
           }`}
@@ -100,18 +123,18 @@ const ModernMachine = () => {
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div data-animate className="flex flex-col">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#e56e1b]">
                   {slide.title}
                 </h3>
 
                 {slide.subtitle && (
-                  <p className="mt-2 text-sm text-slate-600">
+                  <p data-animate className="mt-2 text-sm text-slate-600">
                     {slide.subtitle}
                   </p>
                 )}
 
-                <ul className="mt-6 space-y-3">
+                <ul data-animate className="mt-6 space-y-3">
                   {slide.points.map((point, i) => (
                     <li key={i} className="flex gap-3 text-sm text-slate-700">
                       <span className="text-teal-500 mt-1">✱</span>

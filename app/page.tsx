@@ -19,7 +19,7 @@ export default function HomePage() {
       <ComprehensiveCancerCareSection />
       <ExpertTreatment />
       <MedicalTeamSection />
-      <ModernMachine />
+      {/* <ModernMachine /> */}
       <AppointmentSection />
       <VisitUs />
       <Emergency />

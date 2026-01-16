@@ -5,6 +5,8 @@ import NavBar from "@/components/layout/NavBar";
 import localFont from "next/font/local";
 import Footer from "@/components/layout/Footer";
 import AOSProvider from "@/components/providers/AOSProvider";
+import MobileBottomNav from "@/components/layout/MobileBottomNav";
+import BookAppointment from "@/components/layout/BookAppointment";
 
 const satoshi = localFont({
   src: [
@@ -46,6 +48,8 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Footer />
+        <BookAppointment />
+        <MobileBottomNav />
       </body>
     </html>
   );

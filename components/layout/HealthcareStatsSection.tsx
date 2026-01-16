@@ -19,7 +19,11 @@ export default function HealthcareStatsSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         {/* Title */}
-        <h2 className="text-center text-3xl lg:text-4xl font-bold text-[#e56e1b] mb-12 lg:mb-16">
+        <h2
+          className="text-center text-3xl lg:text-4xl font-bold text-[#e56e1b] mb-12 lg:mb-16"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
           Healthcare That Touches Lives Every Day
         </h2>
 
@@ -29,6 +33,9 @@ export default function HealthcareStatsSection() {
             <div
               key={index}
               className="flex flex-col items-center justify-center text-center"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay={index * 100}
             >
               {/* Icon */}
               <div className="relative w-16 h-16 lg:w-20 lg:h-20 flex-center-col">

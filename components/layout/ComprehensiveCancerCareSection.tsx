@@ -1,13 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { MoveUpRight } from "lucide-react";
+import { ArrowUpRight, MoveUpRight } from "lucide-react";
 import { departments } from "../constants/ComprehensiveConsts";
+import gsap from "gsap";
 
 export default function ComprehensiveCancerCare() {
   const [activeDept, setActiveDept] = useState(departments[0]);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const items = contentRef.current.querySelectorAll("[data-animate]");
+
+    gsap.fromTo(
+      items,
+      {
+        y: 30,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: "power2.out",
+      }
+    );
+  }, [activeDept]);
 
   return (
     <section className="bg-white py-12 px-4 md:py-20 font-sans">
@@ -31,20 +54,26 @@ export default function ComprehensiveCancerCare() {
               />
             </div>
 
-            <div className="relative z-10 w-full h-full flex flex-col justify-center overflow-y-auto scrollbar-hide">
-              <div
-                key={activeDept.id}
-                className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-              >
-                <h3 className="text-omega text-2xl font-bold tracking-tight">
+            <div
+              ref={contentRef}
+              className="relative z-10 w-full h-full flex flex-col justify-center scrollbar-hide"
+            >
+              <div key={activeDept.id}>
+                <h3
+                  data-animate
+                  className="text-omega text-2xl font-bold tracking-tight"
+                >
                   {activeDept.title}
                 </h3>
 
-                <p className="mt-6 font-normal leading-relaxed text-base max-w-xl">
+                <p
+                  data-animate
+                  className="mt-6 font-normal leading-relaxed text-base max-w-xl"
+                >
                   {activeDept.description}
                 </p>
 
-                <div className="mt-8">
+                <div data-animate className="mt-8">
                   <h4 className="font-normal text-sm mb-3">
                     {activeDept.servicetTitle}
                   </h4>
@@ -61,16 +90,21 @@ export default function ComprehensiveCancerCare() {
                   </ul>
                 </div>
 
-                <p className="mt-8 text-sm text-gray-600">
+                <p data-animate className="mt-8 text-sm text-gray-600">
                   <span className="font-normal text-1xl">
                     Support Services:
                   </span>
                   {activeDept.support}
                 </p>
 
-                <Button className="mt-10 bg-[#e56e1b] hover:bg-[#c95d14] text-white px-8 py-6 rounded-xl text-lg flex items-center gap-2 transition-all">
+                <Button className="group bg-[#E86B1E] hover:bg-[#c95d14] text-white font-bold py-3.5 sm:py-4 rounded-full flex items-center justify-center gap-2 mt-5">
                   Book Consultation
-                  <MoveUpRight className="w-5 h-5" />
+                  <ArrowUpRight
+                    size={20}
+                    className="transition-transform duration-300 ease-out
+      group-hover:translate-x-1
+      group-hover:-translate-y-1"
+                  />
                 </Button>
               </div>
             </div>
@@ -132,6 +166,8 @@ export default function ComprehensiveCancerCare() {
             })}
           </div>
         </div>
+
+        {/* mobile */}
         <div className="lg:hidden flex flex-col border-[1.5px] border-[#e56e1b]/40 rounded-[24px] overflow-hidden bg-white shadow-sm">
           {departments.map((dept, index) => {
             const isEven = index % 2 === 0;
@@ -205,16 +241,31 @@ export default function ComprehensiveCancerCare() {
                       </div>
 
                       <div className="relative z-10">
-                        <h3 className="text-omega text-xl font-bold tracking-tight">
+                        <h3
+                          className="text-omega text-xl font-bold tracking-tight"
+                          data-aos="fade-up"
+                          data-aos-duration="600"
+                          data-aos-delay="0"
+                        >
                           {dept.title}
                         </h3>
 
-                        <p className="mt-4 font-normal leading-relaxed text-sm text-gray-700">
+                        <p
+                          className="mt-4 font-normal leading-relaxed text-sm text-gray-700"
+                          data-aos="fade-up"
+                          data-aos-duration="600"
+                          data-aos-delay="200"
+                        >
                           {dept.description}
                         </p>
 
                         <div className="mt-6">
-                          <h4 className="font-medium text-sm mb-3 text-black">
+                          <h4
+                            className="font-medium text-sm mb-3 text-black"
+                            data-aos="fade-up"
+                            data-aos-duration="600"
+                            data-aos-delay="400"
+                          >
                             {dept.servicetTitle}
                           </h4>
                           <ul className="flex flex-col gap-y-2">
@@ -230,16 +281,24 @@ export default function ComprehensiveCancerCare() {
                           </ul>
                         </div>
 
-                        <p className="mt-6 text-sm text-gray-600">
+                        <p
+                          className="mt-6 text-sm text-gray-600"
+                          data-aos="fade-up"
+                          data-aos-duration="600"
+                          data-aos-delay="600"
+                        >
                           <span className="font-medium text-black">
                             Support Services:
                           </span>
                           {dept.support}
                         </p>
 
-                        <Button className="mt-8 w-full bg-[#e56e1b] hover:bg-[#c95d14] text-white px-6 py-5 rounded-xl text-base flex items-center justify-center gap-2 transition-all">
+                        <Button className="group mt-8 w-full bg-[#e56e1b] hover:bg-[#c95d14] text-white px-6 py-5 rounded-xl text-base flex items-center justify-center gap-2 transition-colors">
                           Book Consultation
-                          <MoveUpRight className="w-4 h-4" />
+                          <ArrowUpRight
+                            size={20}
+                            className="transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-1"
+                          />
                         </Button>
                       </div>
                     </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Facebook,
   Instagram,
@@ -26,56 +27,56 @@ const Footer = () => {
             </div>
             <div>
               <ul className="flex gap-6 mt-6">
-                <li>
-                  <a
-                    href="https://www.youtube.com/@dr.mohanavamsy"
+                <li className="bg-[#ddf6f8] p-2.5 rounded-full">
+                  <Link
+                    href=""
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-red-600 hover:text-red-800 transition-colors"
+                    className="text-[#299fb0] hover:opacity-80 transition-opacity"
                   >
-                    <Youtube size={36} />
-                  </a>
+                    <Youtube size={24} />
+                  </Link>
                 </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/omega.hospitals/"
+                <li className="bg-[#ddf6f8] p-2.5 rounded-full">
+                  <Link
+                    href=""
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-pink-600 hover:text-pink-800 transition-colors"
+                    className="text-[#299fb0] transition-colors"
                   >
-                    <Instagram size={36} />
-                  </a>
+                    <Instagram size={24} />
+                  </Link>
                 </li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/OmegaHospitalsOfficial/"
+                <li className="bg-[#ddf6f8] p-2.5 rounded-full">
+                  <Link
+                    href=""
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                    className="text-[#299fb0] transition-colors"
                   >
-                    <Facebook size={36} />
-                  </a>
+                    <Facebook size={24} />
+                  </Link>
                 </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/omega-hospitals-hyderabad"
+                <li className="bg-[#ddf6f8] p-2.5 rounded-full">
+                  <Link
+                    href=""
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-700 hover:text-blue-900 transition-colors"
+                    className="text-[#299fb0] transition-colors"
                   >
-                    <Linkedin size={36} />
-                  </a>
+                    <Linkedin size={24} />
+                  </Link>
                 </li>
               </ul>
             </div>
             <div className="mt-6">
               <div className="flex items-center gap-4">
-                <a
-                  href="mailto:info@omegahospitals.com"
-                  className="text-[#299fb0] hover:opacity-80 transition-opacity"
+                <Link
+                  href=""
+                  className="text-[#299fb0] p-2.5 hover:opacity-80 transition-opacity bg-[#e9f4f5] rounded-full"
                 >
-                  <Mail size={36} />
-                </a>
+                  <Mail size={24} />
+                </Link>
                 <p className="info-section text-base font-normal leading-loose text-[#000] m-0">
                   Mail: info@omegahospitals.com
                 </p>
@@ -83,12 +84,12 @@ const Footer = () => {
             </div>
             <div className="mt-[10px]">
               <div className="flex items-center gap-4">
-                <a
-                  href="tel:08773501609"
-                  className="text-[#299fb0] hover:opacity-80 transition-opacity"
+                <Link
+                  href=""
+                  className="text-[#299fb0] p-2.5 hover:opacity-80 transition-opacity bg-[#e9f4f5] rounded-full"
                 >
-                  <Phone size={36} />
-                </a>
+                  <Phone size={24} />
+                </Link>
                 <p className="info-section text-base font-normal leading-loose text-[#000] m-0">
                   Phone: 08773501609
                 </p>
@@ -123,11 +124,11 @@ const Footer = () => {
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div>
                 <div>
-                  <a
+                  <Link
                     className="no-decoration block"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://play.google.com/store/apps/details?id=com.omegahospitals.consumerapp"
+                    href=""
                   >
                     <img
                       alt="playstore"
@@ -138,14 +139,14 @@ const Footer = () => {
                       className="w-full sm:w-auto"
                       src="/images/playstore.jpg"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="pt-2">
-                  <a
+                  <Link
                     className="no-decoration block"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://apps.apple.com/in/app/omega-hospitals/id6474674502"
+                    href=""
                   >
                     <img
                       alt="appstore"
@@ -156,7 +157,7 @@ const Footer = () => {
                       className="w-full sm:w-auto"
                       src="/images/appstore.jpg"
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div>
@@ -180,76 +181,76 @@ const Footer = () => {
                 </h2>
                 <ul className="list-none mb-0 pl-0 mt-0 font-omega-typography-text-sm-regular-font-family">
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/surgical-oncology"
+                      href=""
                     >
                       Surgical Oncology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/orthopaedics"
+                      href=""
                     >
                       Orthopaedic Oncology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/radiation-oncology"
+                      href=""
                     >
                       Radiation Oncology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/neurology"
+                      href=""
                     >
                       Neuro Oncology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/nuclear-medicine"
+                      href=""
                     >
                       Nuclear Medicine &amp; PET-CT
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/technology/pet-mri"
+                      href=""
                     >
                       PET MRI
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/technology/cyberknife-vsi"
+                      href=""
                     >
                       Robotic Radio Surgery
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/medical-oncology"
+                      href=""
                     >
                       Medical Oncology
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -259,184 +260,184 @@ const Footer = () => {
                 </h2>
                 <ul className="list-none mb-0 pl-0 mt-0 font-omega-typography-text-sm-regular-font-family">
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/emergency-medicine"
+                      href=""
                     >
                       Emergency &amp; Trauma
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/cardiology"
+                      href=""
                     >
                       Cardiology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-gachibowli/centers-of-excellence/cardiothoracic-surgery"
+                      href=""
                     >
                       Cardio Thoracic
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/neurology"
+                      href=""
                     >
                       Neurology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/neurosurgery"
+                      href=""
                     >
                       Neuro Surgery
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/orthopaedics"
+                      href=""
                     >
                       Orthopaedics &amp; Joint Replacements
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/nephrology"
+                      href=""
                     >
                       Nephrology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/urology"
+                      href=""
                     >
                       Urology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/gastroenterology"
+                      href=""
                     >
                       Gastro
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/pulmonology"
+                      href=""
                     >
                       Pulmonology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/critical-care"
+                      href=""
                     >
                       Critical Care Medicine
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/dentistry"
+                      href=""
                     >
                       Dentistry
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/dentistry"
+                      href=""
                     >
                       ENT
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/dermatology"
+                      href=""
                     >
                       Dermatology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/breast-clinic"
+                      href=""
                     >
                       Breast Clinic
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/lipedema-clinic"
+                      href=""
                     >
                       Lipedema Clinic
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/spine-clinic"
+                      href=""
                     >
                       Spine Clinic
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/plastic-surgery"
+                      href=""
                     >
                       Plastic Surgery
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/surgicial-gastroenterology"
+                      href=""
                     >
                       Surgical Gastroenterology
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/omega-hospitals-tirupati/centers-of-excellence/obesity-clinic"
+                      href=""
                     >
                       Obesity Clinic
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -451,202 +452,202 @@ const Footer = () => {
                   </h2>
                   <ul className="list-none mb-0 pl-0 mt-0 font-omega-typography-text-sm-regular-font-family">
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/technology/pet-ct"
+                        href=""
                       >
                         Technology
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/facilities"
+                        href=""
                       >
                         Facilities
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="https://www.omegahospitals.com/blog"
+                        href=""
                       >
                         Blogs
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/news-and-media"
+                        href=""
                       >
                         News and media
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/cafeteria"
+                        href=""
                       >
                         Cafeteria
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/info/biomedical-waste"
+                        href=""
                       >
                         Biomedical Waste
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/terms"
+                        href=""
                       >
                         Terms &amp; conditions
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/privacy"
+                        href=""
                       >
                         Privacy Policy
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/cancellation"
+                        href=""
                       >
                         Cancellation Policy
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/insurance"
+                        href=""
                       >
                         Insurance
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/Corporate-Empanelment"
+                        href=""
                       >
                         Corporate Empanelment
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/in-patients"
+                        href=""
                       >
                         In-Patients
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/Out-Patients"
+                        href=""
                       >
                         Out Patients
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/our-patients"
+                        href=""
                       >
                         Our Patients
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/hospital-rooms"
+                        href=""
                       >
                         Hospital Rooms
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/patient-rooms"
+                        href=""
                       >
                         Patient Rooms
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/courses"
+                        href=""
                       >
                         Courses
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/knowledgecenter"
+                        href=""
                       >
                         Knowledge Center
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/departments"
+                        href=""
                       >
                         Departments
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/faqs"
+                        href=""
                       >
                         FAQs
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/gallery"
+                        href=""
                       >
                         Gallery
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                         target="_parent"
-                        href="/patients-testimonials"
+                        href=""
                       >
                         Patient Testimonials
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -657,175 +658,175 @@ const Footer = () => {
                 </h2>
                 <ul className="list-none mb-0 pl-0 mt-0 font-omega-typography-text-sm-regular-font-family">
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/breast-cancer"
+                      href=""
                     >
                       Breast Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/brain-cancer"
+                      href=""
                     >
                       Brain Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/cervix-cancer"
+                      href=""
                     >
                       Cervix Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/ovarian-cancer"
+                      href=""
                     >
                       Ovarian Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/anal-cancer"
+                      href=""
                     >
                       Anal Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/liver-cancer"
+                      href=""
                     >
                       Liver Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/colon-cancer"
+                      href=""
                     >
                       Colon Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/endometrial-cancer"
+                      href=""
                     >
                       Endometrial Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/carcinoma-pancreas-cancer"
+                      href=""
                     >
                       Pancreatic Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/stomach-cancer"
+                      href=""
                     >
                       Stomach Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/skin-cancer"
+                      href=""
                     >
                       Skin Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/prostate-cancer"
+                      href=""
                     >
                       Prostate Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/thyroid-cancer"
+                      href=""
                     >
                       Thyroid Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/testicular-cancer"
+                      href=""
                     >
                       Testicular Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="https://www.omegahospitals.com/lungs-cancer"
+                      href=""
                     >
                       Lung Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/brain-tumour"
+                      href=""
                     >
                       Brain Tumour
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/oesophageal-cancer"
+                      href=""
                     >
                       Oesophageal Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/oral-cancer"
+                      href=""
                     >
                       Oral Cancer
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="fotter_links text-base font-medium text-gray-600 leading-6 no-underline hover:text-[#299fb0] transition-colors"
                       target="_parent"
-                      href="/pancreatic-cancer"
+                      href=""
                     >
                       Pancreatic Cancer
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -836,9 +837,9 @@ const Footer = () => {
       <div>
         <div className="text-[14px] text-center bg-[#000] text-[#fff] py-2 xs:pb-14 mt-3 font-omega-typography-text-sm-regular-font-family">
           © Copyright 2025 -{" "}
-          <a className="text-[#fff] no-underline" href="/">
+          <Link className="text-[#fff] no-underline" href="">
             Omega Hospitals - A Morgan Stanley Enterprise. All Rights Reserved.
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
