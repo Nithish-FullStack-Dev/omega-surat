@@ -18,7 +18,7 @@ const AppointmentSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-center">
           {/* LEFT COLUMN: Form & How to Reach */}
           <div className="flex flex-col gap-6">
             {/* Appointment Form Card */}
@@ -63,7 +63,7 @@ const AppointmentSection = () => {
           {/* RIGHT COLUMN: Image & Contact Info */}
           <div className="flex flex-col h-full">
             {/* Main Image */}
-            <div className="relative w-full h-[300px] md:h-[400px] lg:h-[450px] mb-8">
+            <div className="relative w-full h-[300px] md:h-[400px] lg:h-full mb-8">
               {/* Note: Path based on your assets folder structure */}
               <Image
                 src="/images/doctor-consultation.png"
